@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pas Jurkus</title>
   <style>
-    body {
+    
+    body, html {
+      height: 100%;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .hero {
-      background: url('./img/hero.jpeg') center/cover no-repeat;
+    .hero-image {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/hero.jpegg");
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-      text-align: center;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
     }
 
     .hero-text {
@@ -30,6 +28,17 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
+    }
+
+    .hero-text button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 10px 25px;
+      color: black;
+      background-color: #ddd;
+      text-align: center;
+      cursor: pointer;
     }
 
     .contact {
@@ -58,20 +67,11 @@
       height: 100%;
     }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <section class="hero">
+  <section class="hero-image">
     <div class="hero-text">
       <h1>Pas Jurkus</h1>
       <p>Ūkis prie Jūros 🏖️</p>
