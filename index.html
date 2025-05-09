@@ -46,6 +46,10 @@
       cursor: pointer;
     }
 
+    .font-system{
+      font-family: system-ui;
+    }
+
     .contact {
       padding: 2em;
       background: #f7f7f7;
@@ -76,19 +80,23 @@
 </head>
 <body>
 
-  <section class="hero-image">
+  <div class="hero-image">
     <div class="hero-text">
-      <h1>Pas Jurkus</h1>
-      <p>Ūkis prie Jūros 🏖️</p>
+      <h1>Pas Jurkus prie Jūros 🏖️</h1>
+      <p>Šeimos ūkis gamtos apsupty</p>
       <button>Kontaktai</button>
     </div>
-  </section>
+  </div >
 
-  <section class="contact">
+  <div class="contact">
     <h2>Kontaktai</h2>
-    <p>Adresas: Ūkininkų g. 1, Kaimas, LT-12345</p>
-    <p>Tel. +370 600 00000</p>
-    <p>El. paštas: info@manoūkis.lt</p>
+    <div class="font-system">
+      <p>Jurkų Šeimos Ūkis</p>
+      <p>Ūkininkų g. 1, Kaimas, LT-12345</p>
+      <p>Tel. +370 600 00000</p>
+      <p>El. paštas: info@manoūkis.lt</p>
+    </div>
+   </div>
 
     <div class="map-container">
       <iframe 
@@ -97,7 +105,7 @@
         loading="lazy">
       </iframe>
     </div>
-  </section>
+  </div>
 
 </body>
 </html>
