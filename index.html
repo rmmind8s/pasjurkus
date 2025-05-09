@@ -23,14 +23,13 @@
       text-align: center;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      margin-top: 0.5em;
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
     }
 
     .contact {
@@ -73,8 +72,11 @@
 <body>
 
   <section class="hero">
-    <h1>Pas Jurkus</h1>
-    <p>Prie Jūros 🏖️</p>
+    <div class="hero-text">
+      <h1>Pas Jurkus</h1>
+      <p>Ūkis prie Jūros 🏖️</p>
+      <button>Kontaktai</button>
+    </div>
   </section>
 
   <section class="contact">
