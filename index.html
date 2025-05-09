@@ -23,6 +23,11 @@
       font-family: "Tagesschrift", system-ui;
     }
 
+    body {
+      background: #fff2cf;
+      background: linear-gradient(127deg, rgba(255, 242, 207, 1) 0%, rgba(255, 220, 156, 1) 100%);
+    }
+
     .hero-image {
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/hero.jpeg");
       height: 100vh;
@@ -58,7 +63,6 @@
 
     .contact {
       padding: 2em;
-      background: #f7f7f7;
       text-align: center;
     }
 
@@ -82,8 +86,17 @@
       height: 100%;
     }
 
-    a {
+    contact a {
       color: #333;
+      text-decoration: none;
+    }
+
+    contact a:hover, contact a:active {
+      text-decoration: underline;
+    }
+
+    .button-container {
+      margin-top: 1.5em;
     }
 
   </style>
@@ -94,11 +107,11 @@
     <div class="hero-text">
       <h1>Pas Jurkus prie Jūros</h1>
       <p>Šeimos ūkis gamtos apsupty</p>
-      <a href="#contact"><i class="fa-solid fa-chevron-down"></i></a>
+      <p class="button-container"><a href="#kontaktai"><i class="fa-solid fa-circle-chevron-down"></i></a></p>
     </div>
   </div >
 
-  <div class="contact" id="contact">
+  <div class="contact" id="kontaktai">
     <h2>Kontaktai</h2>
     <h3>Jurkų Šeimos Ūkis</h3>
     <div class="font-system">
