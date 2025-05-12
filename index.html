@@ -12,10 +12,13 @@
   <style>
 
     :root {
+      --red: 200;
+      --green: 140;
+      --blue: 20;
       --black: 51, 51, 51;
-      --dark: 99, 79, 43;
-      --deep: 160, 121, 47;
-      --light: 255, 240, 210;
+      --dark: calc(round(var(--red) / 2)), calc(round(var(--green) / 2)), calc(round(var(--blue) / 2));
+      --deep: var(--red), var(--green), var(--blue);
+      --light: calc(round(var(--red) + (255 - var(--red)) * 0.75)), calc(round(var(--green) + (255 - var(--green)) * 0.75)), calc(round(var(--blue) + (255 - var(--blue)) * 0.75));
       --white: 255, 255, 255;
     }
 
@@ -36,12 +39,12 @@
 
     a {
       text-decoration: none;
-      color: rgb(var(--deep));
+      color: rgb(var(--dark));
       transition: color 0.3s;
     }
 
     a:hover {
-      color: rgb(var(--dark));
+      color: rgb(var(--deep));
     }
 
     header {
@@ -122,11 +125,11 @@
     }
 
     .social-icons a svg rect, .social-icons a svg path {
-      fill: rgb(var(--deep));
+      fill: rgb(var(--dark));
     }
 
     .social-icons a:hover > svg rect, .social-icons a:hover > svg path {
-      fill: rgb(var(--dark));
+      fill: rgb(var(--deep));
     }
 
     .social-icons {
