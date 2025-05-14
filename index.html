@@ -12,13 +12,10 @@
   <style>
 
     :root {
-      --red: 170;
-      --green: 115;
-      --blue: 0;
       --black: 51, 51, 51;
-      --dark: calc(round(var(--red) / 2)), calc(round(var(--green) / 2)), calc(round(var(--blue) / 2));
-      --deep: var(--red), var(--green), var(--blue);
-      --light: calc(round(var(--red) + (255 - var(--red)) * 0.85)), calc(round(var(--green) + (255 - var(--green)) * 0.85)), calc(round(var(--blue) + (255 - var(--blue)) * 0.85));
+      --dark: 40, 30, 10;
+      --deep: 170, 115, 0;
+      --light: 255, 245, 217;
       --white: 255, 255, 255;
     }
 
@@ -48,7 +45,7 @@
     }
 
     header {
-      background-image: none; /* Pakeisk į faktinį kelią */
+      background-image: url('./img/hero.jpeg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -169,26 +166,6 @@
       background-color: rgb(var(--light));
     }
 
-    .hero-style-1 {
-      background-image: url('./img/hero1.jpeg');
-    }
-
-    .hero-style-2 {
-      background-image: url('./img/hero2.jpeg');
-    }
-
-    .hero-style-3 {
-      background-image: url('./img/hero3.jpeg');
-    }
-
-    .hero-style-4 {
-      background-image: url('./img/hero4.jpeg');
-    }
-
-    .hero-style-5 {
-      background-image: url('./img/hero5.jpeg');
-    }
-
   </style>
 </head>
 <body>
@@ -253,15 +230,6 @@
   <footer>
     <p>Pas Jurkus - prie Jūros 🏖️</p>
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const hero = document.getElementById("hero");
-      const styles = ["hero-style-1", "hero-style-2", "hero-style-3", "hero-style-4", "hero-style-5"];
-      const randomStyle = styles[Math.floor(Math.random() * styles.length)];
-      hero.classList.add(randomStyle);
-    });
-  </script>
 
 </body>
 </html>
