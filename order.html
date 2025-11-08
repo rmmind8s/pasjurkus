@@ -2,23 +2,24 @@
 <html lang="lt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Pas Jurkus – Jautiena</title>
   <style>
     :root {
-      --bg: #f1f3f5;
-      --card-bg: rgba(255,255,255,0.85);
-      --txt: #1c1c1c;
-      --acc: #0a84ff;
+      --bg: #f4f1ea;        /* šieno fonas */
+      --card-bg: rgba(255,255,255,0.9);
+      --txt: #3b2f2f;       /* molio ruda */
+      --acc: #a86b39;       /* šiltas molis / ruda */
+      --acc-light: #c98f5a; /* šviesesnis tonas hover’iams */
       --rad: 16px;
-      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", system-ui, sans-serif;
-      background: linear-gradient(135deg, #e6f0ff, #f8f9fa);
+      background: linear-gradient(135deg, #ede7da, #f7f4ee);
       color: var(--txt);
       padding: 24px 12px;
       min-height: 100vh;
@@ -31,7 +32,7 @@
       width: 100%;
       max-width: 440px;
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(8px);
       border-radius: var(--rad);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -40,7 +41,7 @@
 
     header {
       background: var(--acc);
-      color: #fff;
+      color: #fff8f0;
       text-align: center;
       padding: 28px 20px;
     }
@@ -54,7 +55,7 @@
     p {
       font-size: 1rem;
       margin-top: 6px;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .list {
@@ -66,44 +67,45 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 20px;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e9e2d6;
       transition: background 0.2s;
     }
 
     .row:hover {
-      background: rgba(240, 240, 240, 0.6);
+      background: rgba(245, 238, 227, 0.7);
     }
 
     .name {
       flex: 1;
       font-weight: 600;
       font-size: 1rem;
+      color: var(--txt);
     }
 
     .qty {
       display: flex;
       align-items: center;
-      background: #f0f0f0;
+      background: #f4ede3;
       border-radius: 99px;
       padding: 2px;
       gap: 4px;
     }
 
     .qty button {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border: none;
       background: var(--acc);
-      color: #fff;
+      color: #fffaf3;
       border-radius: 50%;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
     }
 
     .qty button:hover {
-      background: #0073f1;
+      background: var(--acc-light);
     }
 
     .qty button:active {
@@ -111,19 +113,19 @@
     }
 
     .qty input {
-      width: 44px;
-      height: 36px;
+      width: 48px;
+      height: 38px;
       border: none;
       background: transparent;
       text-align: center;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1rem; /* >=16px kad nezoomintų */
       color: var(--txt);
     }
 
     .kg {
       font-weight: 500;
-      color: #666;
+      color: #6d5e4b;
       margin-left: 6px;
     }
 
@@ -135,11 +137,11 @@
 
     .btn {
       background: var(--acc);
-      color: #fff;
+      color: #fffaf3;
       border: none;
       border-radius: 99px;
       padding: 16px 36px;
-      font-size: 1.1rem;
+      font-size: 1.1rem; /* >=16px kad nezoomintų */
       font-weight: 600;
       cursor: pointer;
       width: 100%;
@@ -149,7 +151,7 @@
     }
 
     .btn:hover {
-      background: #0073f1;
+      background: var(--acc-light);
     }
 
     .btn:active {
