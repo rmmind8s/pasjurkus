@@ -1,9 +1,127 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Pas Jurkus – Jautiena</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Pas Jurkus – Jautiena</title>
+<style>
+  :root {
+    --accent: #ffe8a6;
+    --accent-dark: #ffd966;
+    --text: #3b2f2f;
+    --bg: #fffdfa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.08);
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  header {
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  header p {
+    font-size: 1rem;
+    color: #6d5e4b;
+    margin-top: 6px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .name {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .qty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .qty button {
+    background: var(--accent);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .qty button:hover { background: var(--accent-dark); }
+  .qty button:active { transform: scale(0.95); }
+
+  .qty input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+  }
+
+  .kg {
+    margin-left: 8px;
+    font-weight: 500;
+    color: #6d5e4b;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  footer a {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--accent);
+    color: var(--text);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    transition: background 0.3s, transform 0.1s;
+  }
+
+  footer a:hover { background: var(--accent-dark); }
+  footer a:active { transform: scale(0.97); }
+</style>
 </head>
 <body>
 <main>
@@ -12,37 +130,58 @@
     <p>Šviežia jautiena · užsakymas per 30 sek.</p>
   </header>
 
-  <section class="list">
-    <div class="row"><div class="name">Nugarinė</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Sprandinė</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Išpjova</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Kumpis</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Mentė</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Faršas</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Šonkauliai</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Brisketas</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Kaulai</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Flanksteikas</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Antrekotas</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Guliašinė</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-    <div class="row"><div class="name">Kulninė</div><div class="qty"><button onclick="q(-1,this)">−</button><input value="0" readonly><button onclick="q(1,this)">+</button></div><div class="kg">kg</div></div>
-  </section>
+  <section class="list"></section>
 
   <footer>
-    <button onclick="send()">Užsakyti per WhatsApp</button>
+    <a id="orderLink" href="#" target="_blank">Užsakyti per WhatsApp</a>
   </footer>
 </main>
 
 <script>
 const items = ["Nugarinė","Sprandinė","Išpjova","Kumpis","Mentė","Faršas","Šonkauliai","Brisketas","Kaulai","Flanksteikas","Antrekotas","Guliašinė","Kulninė"];
+const listEl = document.querySelector('.list');
+const orderLink = document.getElementById('orderLink');
 
-function q(n, b) {
-  const i = b.parentNode.querySelector('input');
-  let v = +i.value + n;
-  i.value = v < 0 ? 0 : v;
+// Dinamiškai sugeneruojame kiekvieną row
+items.forEach((item, index) => {
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  const name = document.createElement('div');
+  name.className = 'name';
+  name.textContent = item;
+
+  const qty = document.createElement('div');
+  qty.className = 'qty';
+
+  const minusBtn = document.createElement('button');
+  minusBtn.textContent = '−';
+  const input = document.createElement('input');
+  input.value = 0;
+  input.readOnly = true;
+  const plusBtn = document.createElement('button');
+  plusBtn.textContent = '+';
+
+  minusBtn.onclick = () => changeQty(-1, input);
+  plusBtn.onclick = () => changeQty(1, input);
+
+  qty.append(minusBtn, input, plusBtn);
+
+  const kg = document.createElement('div');
+  kg.className = 'kg';
+  kg.textContent = 'kg';
+
+  row.append(name, qty, kg);
+  listEl.appendChild(row);
+});
+
+function changeQty(n, input) {
+  let v = +input.value + n;
+  input.value = v < 0 ? 0 : v;
+  updateLink();
 }
 
-function send() {
+function updateLink() {
   let msg = "Sveiki, Pas Jurkus!\n\nUžsakau:\n";
   let any = false;
   document.querySelectorAll('.row').forEach((r, i) => {
@@ -53,12 +192,16 @@ function send() {
     }
   });
   if (!any) {
-    alert("Pasirinkite bent 1 kg");
-    return;
+    orderLink.href = "#";
+    orderLink.onclick = () => { alert("Pasirinkite bent 1 kg"); return false; };
+  } else {
+    orderLink.href = "https://wa.me/37061649775?text=" + encodeURIComponent(msg);
+    orderLink.onclick = null;
   }
-  msg += "\nAčiū!";
-  open("https://wa.me/37061649775?text=" + encodeURIComponent(msg));
 }
+
+// Inicializuojame nuorodą
+updateLink();
 </script>
 </body>
 </html>
