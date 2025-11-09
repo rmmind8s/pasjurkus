@@ -189,7 +189,7 @@ button:hover {
 
     <div class="info">
       <label for="extra">Papildoma informacija</label>
-      <textarea id="extra" placeholder="Pvz.: pageidauju mažesnių pakuočių..."></textarea>
+      <textarea id="extra" placeholder="Pvz.: durų kodas.."></textarea>
     </div>
   </main>
 
@@ -238,9 +238,9 @@ button:hover {
         return;
       }
 
-      let message = "Sveiki! Noriu užsisakyti:\n" + selected.join("\n");
+      let message = "Sveiki! Noriu užsisakyti:\n\n" + selected.join("\n");
       const extra = document.getElementById('extra').value.trim();
-      if (extra) message += "\n\nPapildoma informacija: " + extra;
+      if (extra) message += "\n\n" + extra;
       message += "\n\n🥩";
 
       const encoded = encodeURIComponent(message);
