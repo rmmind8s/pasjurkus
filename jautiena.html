@@ -90,16 +90,24 @@ main {
 }
 
 .select-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  position: relative;
+  display: inline-block; /* wrapper “apgaubia” tik select */
+}
+
+.select-wrapper select {
+  padding-left: 2rem; /* paliekam vietos trash ikonai viduje */
 }
 
 .select-wrapper .clear-icon {
+  position: absolute;
+  left: 0.3rem;  /* kairėje select */
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   color: var(--blood);
-  display: none;
+  display: none; /* iš pradžių nematoma */
 }
+
 
 
 
@@ -252,11 +260,12 @@ button:hover {
     select.addEventListener('change', () => {
       icon.style.display = select.value > 0 ? 'inline-block' : 'none';
     });
-  
+    
     icon.addEventListener('click', () => {
       select.value = 0;
       icon.style.display = 'none';
     });
+
   });
 
   
