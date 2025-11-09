@@ -190,70 +190,65 @@ button:hover {
   </footer>
 
   <script>
-    const products = [
-      "Nugarinė", "Sprandinė", "Išpjova", "Kumpis", "Mentė",
-      "Faršas", "Šonkauliai", "Brisketas", "Kaulai", "Flanksteikas",
-      "Antrekotas", "Guliašinė", "Kulninė"
-    ];
-
-    const products = [
-      { name: "Nugarinė", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Sprandinė", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Išpjova", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Kumpinė", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Mentė", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Faršas", desc: "Pakuotė apie 1 kg" },
-      { name: "Šonkauliai", desc: "Pakuotė apie 1 kg" },
-      { name: "Krūtininė (brisketas)", desc: "Pakuotė apie 0.6 kg" },
-      { name: "Kaulai", desc: "Pakuotė apie 2 kg" },
-      { name: "Papilvė (flanksteikas)", desc: "Pakuotė apie 0.8 kg" },
-      { name: "Antrekotas", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Guliašinė", desc: "Pakuotė apie 0.6 kg" },
-      { name: "Kulninė su kaulu", desc: "Pakuotė apie 0.65 kg" },
-      { name: "Jautienos žandai", desc: "Pakuotė apie 0.5 kg" },
-      { name: "Jautienos kepenys", desc: "Pakuotė apie 1 kg" },
-      { name: "Jautienos širdis", desc: "1 vnt." },
-      { name: "Jautienos liežuvis", desc: "1 vnt." },
-      { name: "Jautienos uodega", desc: "1 vnt." },
-    ];
-
-    const container = document.getElementById('products');
-
-    products.forEach(name => {
-      const div = document.createElement('div');
-      div.className = 'product';
-      div.innerHTML = `
-        <div>
-          <div class="product-name">${product.name}</div>
-          <div class="product-desc">${product.desc}</div>
-        </div>
-        <select id="${product.name}" name="${product.name}">
-          ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
-        </select>
-      `;
-      container.appendChild(div);
-    });
-
-    document.getElementById('orderBtn').addEventListener('click', () => {
-      const selected = products
+   const products = [
+    { name: "Nugarinė", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Sprandinė", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Išpjova", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Kumpinė", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Mentė", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Faršas", desc: "Pakuotė apie 1 kg" },
+    { name: "Šonkauliai", desc: "Pakuotė apie 1 kg" },
+    { name: "Krūtininė (brisketas)", desc: "Pakuotė apie 0.6 kg" },
+    { name: "Kaulai", desc: "Pakuotė apie 2 kg" },
+    { name: "Papilvė (flanksteikas)", desc: "Pakuotė apie 0.8 kg" },
+    { name: "Antrekotas", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Guliašinė", desc: "Pakuotė apie 0.6 kg" },
+    { name: "Kulninė su kaulu", desc: "Pakuotė apie 0.65 kg" },
+    { name: "Jautienos žandai", desc: "Pakuotė apie 0.5 kg" },
+    { name: "Jautienos kepenys", desc: "Pakuotė apie 1 kg" },
+    { name: "Jautienos širdis", desc: "1 vnt." },
+    { name: "Jautienos liežuvis", desc: "1 vnt." },
+    { name: "Jautienos uodega", desc: "1 vnt." },
+  ];
+  
+  const container = document.getElementById('products');
+  
+  products.forEach(product => {
+    const div = document.createElement('div');
+    div.className = 'product';
+    div.innerHTML = `
+      <div>
+        <div class="product-name">${product.name}</div>
+        <div class="product-desc">${product.desc}</div>
+      </div>
+      <select id="${product.name}" name="${product.name}">
+        ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
+      </select>
+    `;
+    container.appendChild(div);
+  });
+  
+  document.getElementById('orderBtn').addEventListener('click', () => {
+    const selected = products
       .map(p => {
         const val = document.getElementById(p.name).value;
         return val > 0 ? `${p.name}: ${val}` : null;
       })
       .filter(Boolean);
+  
+    if (selected.length === 0) {
+      alert("Pasirinkite bent vieną produktą.");
+      return;
+    }
+  
+    let message = "Sveiki! Noriu užsisakyti:\n\n" + selected.join("\n");
+    message += "\n\n🥩";
+  
+    const encoded = encodeURIComponent(message);
+    const phone = "37061649775";
+    window.location.href = `https://wa.me/${phone}?text=${encoded}`;
+  });
 
-      if (selected.length === 0) {
-        alert("Pasirinkite bent vieną produktą.");
-        return;
-      }
-
-      let message = "Sveiki! Noriu užsisakyti:\n\n" + selected.join("\n");
-      message += "\n\n🥩";
-
-      const encoded = encodeURIComponent(message);
-      const phone = "37061649775";
-      window.location.href = `https://wa.me/${phone}?text=${encoded}`;
-    });
   </script>
 </body>
 </html>
