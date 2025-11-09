@@ -83,25 +83,24 @@ main {
 .product {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* svarbu! */
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
   width: 100%;
-  position: relative;
 }
 
 .select-wrapper {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: auto; /* šita eilutė stumia select į dešinę */
 }
 
 .select-wrapper .clear-icon {
   cursor: pointer;
   color: var(--blood);
-  display: none; /* iš pradžių nematoma */
+  display: none;
 }
+
 
 
 .product > div {
@@ -231,7 +230,7 @@ button:hover {
   const container = document.getElementById('products');
   
   products.forEach(product => {
-    const div = document.createElement('div');
+  const div = document.createElement('div');
     div.className = 'product';
     div.innerHTML = `
       <div>
@@ -250,17 +249,16 @@ button:hover {
     const select = div.querySelector('select');
     const icon = div.querySelector('.clear-icon');
   
-    // rodyti ikoną tik kai pasirinktas kiekis > 0
     select.addEventListener('change', () => {
       icon.style.display = select.value > 0 ? 'inline-block' : 'none';
     });
   
-    // paspaudus ikoną, grąžina select į 0 ir paslepia ikoną
     icon.addEventListener('click', () => {
       select.value = 0;
       icon.style.display = 'none';
     });
   });
+
   
   document.getElementById('orderBtn').addEventListener('click', () => {
     const selected = products
