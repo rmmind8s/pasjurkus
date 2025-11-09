@@ -3,342 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jautienos užsakymas</title>
+  <title>Jautienos užsakymas – Jurkų Šeimos Ūkis</title>
+
+  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Pas Jurkus" />
+  <link rel="manifest" href="./img/favicon/site.webmanifest" />
+
+  <meta name="theme-color" content="#fcb016" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+  
   <style>
     body {
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-      background: #f7f7f7;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
+      background: #f9f9f7;
+      color: #222;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .order-sheet {
-      background: #fff;
-      padding: 25px 20px 40px;
-      width: 100%;
-      max-width: 640px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    header {
+      text-align: center;
+      padding: 1rem 1rem 0.5rem;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 0.5rem;
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 24px;
-      color: #222;
-      letter-spacing: 0.3px;
+      font-size: 1.6rem;
+      margin: 0.2rem 0;
     }
 
-    .product-row {
+    h2 {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #666;
+      margin: 0 0 1rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 0 1rem 6rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .product {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-
-    .product-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e5e5;
     }
 
     .product-name {
-      font-size: 16px;
-      color: #333;
+      font-size: 1rem;
       font-weight: 500;
-      line-height: 1.2;
     }
 
-    .product-note {
-      font-size: 12px;
-      color: #888;
-      line-height: 1.2;
-      margin-top: 2px;
+    .product-desc {
+      font-size: 0.8rem;
+      color: #666;
     }
 
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      flex-shrink: 0;
-    }
-
-    .quantity-control button {
-      width: 26px;
-      height: 26px;
-      border: none;
-      background-color: #28a745;
-      color: white;
-      border-radius: 4px;
-      font-size: 17px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0;
-    }
-
-    .quantity-control button:hover {
-      background-color: #218838;
-    }
-
-    .quantity-control input {
-      width: 32px;
-      height: 26px;
-      text-align: center;
-      font-size: 15px;
+    select {
+      padding: 0.3rem 0.5rem;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 0;
-      margin: 0;
+      font-size: 0.95rem;
+      background: #fff;
     }
 
-    button#orderBtn {
-      margin-top: 25px;
+    .info {
+      margin-top: 1.5rem;
+    }
+
+    textarea {
       width: 100%;
-      padding: 14px;
-      background-color: #28a745;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
+      min-height: 80px;
+      resize: vertical;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 0.75rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fff;
     }
 
-    button#orderBtn:hover {
-      background-color: #218838;
-    }
-
-    .note {
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      padding: 1rem;
       text-align: center;
-      font-size: 13px;
-      color: #777;
-      margin-top: 10px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
 
-    @media (max-width: 600px) {
-      .order-sheet {
-        box-shadow: none;
-        border-radius: 0;
-        padding: 20px 15px 30px;
-      }
+    button {
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      max-width: 400px;
+    }
 
-      .product-name {
-        font-size: 15px;
-      }
+    button:hover {
+      background: #a30000;
+    }
 
-      .quantity-control input {
-        width: 28px;
-        font-size: 14px;
+    .footer-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .product {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      select {
+        margin-top: 0.5rem;
+        align-self: flex-end;
       }
     }
   </style>
 </head>
 <body>
-
-  <div class="order-sheet">
+  <header>
+    <img src="https://pasjurkus.lt/img/logo.png" alt="Jurkų Šeimos Ūkis logotipas">
     <h1>Jautienos užsakymas</h1>
+    <h2>Jurkų Šeimos Ūkis</h2>
+  </header>
 
-    <div id="products">
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Nugarinė</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
+  <main>
+    <div id="products"></div>
 
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Sprandinė</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Išpjova</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Kumpis</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Mentė</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Faršas</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Šonkauliai</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Brisketas</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Kaulai</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Flanksteikas</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Antrekotas</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Guliašinė</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-info">
-          <div class="product-name">Kulninė</div>
-          <div class="product-note">Pakuotė nuo 0.7 iki 1.2 kg</div>
-        </div>
-        <div class="quantity-control">
-          <button>-</button>
-          <input type="number" value="0" min="0" max="99" step="1">
-          <button>+</button>
-        </div>
-      </div>
+    <div class="info">
+      <label for="extra">Papildoma informacija</label>
+      <textarea id="extra" placeholder="Pvz.: pageidauju mažesnių pakuočių..."></textarea>
     </div>
+  </main>
 
+  <footer>
     <button id="orderBtn">Užsakyti</button>
-    <div class="note">Paspaudus „Užsakyti“, būsite nukreipti į WhatsApp užsakymo patvirtinimui.</div>
-  </div>
+    <div class="footer-note">Paspaudę mygtuką būsite nukreipti į WhatsApp. Nepamirškite išsiųsti užsakymo žinutės.</div>
+  </footer>
 
   <script>
-    const phone = "37061649775";
+    const products = [
+      "Nugarinė", "Sprandinė", "Išpjova", "Kumpis", "Mentė",
+      "Faršas", "Šonkauliai", "Brisketas", "Kaulai", "Flanksteikas",
+      "Antrekotas", "Guliašinė", "Kulninė"
+    ];
 
-    document.querySelectorAll(".quantity-control").forEach(control => {
-      const input = control.querySelector("input");
-      const [minus, plus] = control.querySelectorAll("button");
+    const container = document.getElementById('products');
 
-      minus.onclick = () => {
-        const val = parseInt(input.value);
-        if (val > 0) input.value = val - 1;
-      };
-      plus.onclick = () => {
-        const val = parseInt(input.value);
-        if (val < 99) input.value = val + 1;
-      };
+    products.forEach(name => {
+      const div = document.createElement('div');
+      div.className = 'product';
+      div.innerHTML = `
+        <div>
+          <div class="product-name">${name}</div>
+          <div class="product-desc">Pakuotė nuo 0.7 iki 1.2 kg</div>
+        </div>
+        <select id="${name}" name="${name}">
+          ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
+        </select>
+      `;
+      container.appendChild(div);
     });
 
-    document.getElementById("orderBtn").onclick = () => {
-      const rows = document.querySelectorAll(".product-row");
-      const selected = [];
-
-      rows.forEach(row => {
-        const name = row.querySelector(".product-name").textContent.trim();
-        const qty = parseInt(row.querySelector("input").value);
-        if (qty > 0) selected.push(`${name} – ${qty} kg`);
-      });
+    document.getElementById('orderBtn').addEventListener('click', () => {
+      const selected = products
+        .map(p => {
+          const val = document.getElementById(p).value;
+          return val > 0 ? `${p}: ${val}` : null;
+        })
+        .filter(Boolean);
 
       if (selected.length === 0) {
-        alert("Prašome pasirinkti bent vieną produktą.");
+        alert("Pasirinkite bent vieną produktą.");
         return;
       }
 
-      const message = `Sveiki! Noriu užsisakyti:\n\n${selected.join("\n")}`;
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
-    };
-  </script>
+      let message = "Sveiki! Noriu užsisakyti:\n" + selected.join("\n");
+      const extra = document.getElementById('extra').value.trim();
+      if (extra) message += "\n\nPapildoma informacija: " + extra;
+      message += "\n\n🥩";
 
+      const encoded = encodeURIComponent(message);
+      const phone = "37061649777";
+      window.location.href = `https://wa.me/${phone}?text=${encoded}`;
+    });
+  </script>
 </body>
 </html>
