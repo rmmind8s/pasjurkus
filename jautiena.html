@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/11da5eb453.js" crossorigin="anonymous"></script>
   
   <style>
   :root {
@@ -85,7 +87,21 @@ main {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
   width: 100%;
+  position: relative;
 }
+
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select-wrapper .clear-icon {
+  cursor: pointer;
+  color: var(--blood);
+  display: none; /* iš pradžių nematoma */
+}
+
 
 .product > div {
   flex: 1;
@@ -221,11 +237,28 @@ button:hover {
         <div class="product-name">${product.name}</div>
         <div class="product-desc">${product.desc}</div>
       </div>
-      <select id="${product.name}" name="${product.name}">
-        ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
-      </select>
+      <div class="select-wrapper">
+        <i class="fas fa-trash clear-icon"></i>
+        <select id="${product.name}" name="${product.name}">
+          ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
+        </select>
+      </div>
     `;
     container.appendChild(div);
+  
+    const select = div.querySelector('select');
+    const icon = div.querySelector('.clear-icon');
+  
+    // rodyti ikoną tik kai pasirinktas kiekis > 0
+    select.addEventListener('change', () => {
+      icon.style.display = select.value > 0 ? 'inline-block' : 'none';
+    });
+  
+    // paspaudus ikoną, grąžina select į 0 ir paslepia ikoną
+    icon.addEventListener('click', () => {
+      select.value = 0;
+      icon.style.display = 'none';
+    });
   });
   
   document.getElementById('orderBtn').addEventListener('click', () => {
