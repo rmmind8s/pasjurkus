@@ -19,138 +19,150 @@
   <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
   
   <style>
-    :root {
-        --black: rgb(43, 43, 43);
-        --dark: rgb(63, 44, 7);
-        --deep: rgb(252, 176, 22);
-        --light: rgb(255, 232, 166);
-        --lighter: rgb(255, 254, 249);
-        --white: rgb(255, 255, 255);
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--lighter);
-      color: var(--dark);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+:root {
+  --black: rgb(43, 43, 43);
+  --dark: rgb(63, 44, 7);
+  --deep: rgb(252, 176, 22);
+  --light: rgb(255, 232, 166);
+  --lighter: rgb(255, 254, 249);
+  --white: rgb(255, 255, 255);
+}
 
-    header {
-      text-align: center;
-      padding: 1.5rem 1rem 1rem; /* šiek tiek didesnis tarpas apačioje */
-      border-bottom: 2px solid rgba(252, 176, 22, 0.3); /* subtili linija tarp header ir turinio */
-      background: var(--lighter);
-    }
-    
-    main {
-      flex: 1;
-      padding: 1.5rem 1rem 6rem; /* didesnis viršutinis tarpas po header */
-      max-width: 600px;
-      margin: 0 auto;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    header img {
-      width: 240px;
-      height: auto;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--lighter);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 1.6rem;
-      margin: 0.2rem 0;
-      font-family: "Tagesschrift", system-ui;
-    }
+header {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+  border-bottom: 2px solid rgba(252, 176, 22, 0.3);
+  background: var(--lighter);
+}
 
-    h2 {
-      font-weight: 400;
-      font-size: 1rem;
-      color: #666;
-      margin: 0 0 1rem;
-    }
+header img {
+  width: 240px;
+  height: auto;
+  max-width: 100%;
+}
 
-    .product {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #e5e5e5;
-    }
+h1 {
+  font-size: 1.6rem;
+  margin: 0.2rem 0;
+  font-family: "Tagesschrift", system-ui;
+}
 
-    .product-name {
-      font-size: 1rem;
-      font-weight: 500;
-    }
+h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 1rem;
+}
 
-    .product-desc {
-      font-size: 0.8rem;
-      color: #666;
-    }
+main {
+  flex: 1;
+  padding: 1.5rem 1rem 7rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-    select {
-      padding: 0.3rem 0.5rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 0.95rem;
-      background: #fff;
-    }
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
 
-    .info {
-      margin-top: 1.5rem;
-    }
+.product-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
 
-    textarea {
-      width: 100%;
-      min-height: 80px;
-      resize: vertical;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      padding: 0.75rem;
-      font-family: inherit;
-      font-size: 0.95rem;
-      background: #fff;
-    }
+.product-desc {
+  font-size: 0.8rem;
+  color: #666;
+}
 
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: var(--light);
-      border-top: 1px solid #ddd;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    }
+select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  background: #fff;
+}
 
-    button {
-      background: var(--dark);
-      color: #fff;
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-      max-width: 400px;
-    }
+.info {
+  margin-top: 1.5rem;
+}
 
-    button:hover {
-      background: var(--deep);
-      color: var(--dark);
-    }
+textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+  box-sizing: border-box;
+}
 
-    .footer-note {
-      font-size: 0.85rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--light);
+  border-top: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+button {
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: var(--deep);
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media (max-width: 480px) {
   header img {
-    width: 180px; /* mažesnis logotipas mažame ekrane */
+    width: 180px;
   }
 
   h1 {
@@ -163,13 +175,9 @@
     margin-bottom: 1rem;
   }
 
-  main {
-    padding-top: 1rem; /* išlaikomas švelnus tarpas */
-  }
-
   .product {
     flex-direction: column;
-    align-items: stretch; /* kad select nebūtų prilipęs prie kairės */
+    align-items: stretch;
   }
 
   .product > div {
@@ -181,7 +189,8 @@
     margin-top: 0.5rem;
   }
 }
-  </style>
+</style>
+
 </head>
 <body>
   <header>
