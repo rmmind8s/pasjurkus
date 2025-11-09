@@ -72,17 +72,22 @@ h2 {
 
 main {
   flex: 1;
-  padding: 0rem 1rem 9rem;
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 1.5rem 1rem 9rem;
+  max-width: 100%; /* 600px → 100%, kad užimtų visą ekraną */
+  margin: 0;       /* pašalinta auto, kad nebūtų tarpo kraštuose */
 }
 
 .product {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem; /* pridėtas horizontalus padding */
   border-bottom: 1px solid #e5e5e5;
+  width: 100%; /* užtikrina, kad užimtų visą tėvinio elemento plotį */
+}
+
+.product > div {
+  flex: 1; /* tekstui užima likusį plotį */
 }
 
 .product-name {
@@ -101,6 +106,7 @@ select {
   border: 1px solid #ccc;
   font-size: 0.95rem;
   background: #fff;
+  flex-shrink: 0; /* neleidžia select sumažėti */
 }
 
 footer {
@@ -108,7 +114,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--light);
+  background: var(--dark);
   border-top: 1px solid #ddd;
   padding: 1rem;
   text-align: center;
@@ -116,8 +122,8 @@ footer {
 }
 
 button {
-  background: var(--blood);
-  color: #fff;
+  background: var(--deep);
+  color: var(--dark);
   border: none;
   padding: 0.9rem 2rem;
   border-radius: 10px;
@@ -131,12 +137,12 @@ button {
 }
 
 button:hover {
-  background: var(--dark);
+  /*background: var(--dark);*/
 }
 
 .footer-note {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--light);
   margin-top: 0.5rem;
   max-width: 340px;
   margin-left: auto;
