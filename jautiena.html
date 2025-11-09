@@ -217,8 +217,6 @@ button:hover {
       }
 
       let message = "Sveiki! Noriu užsisakyti:\n\n" + selected.join("\n");
-      const extra = document.getElementById('extra').value.trim();
-      if (extra) message += "\n\n" + extra;
       message += "\n\n🥩";
 
       const encoded = encodeURIComponent(message);
