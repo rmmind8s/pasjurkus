@@ -41,7 +41,16 @@
 
     header {
       text-align: center;
-      padding: 1rem 1rem 0.5rem;
+      padding: 1.5rem 1rem 1rem; /* šiek tiek didesnis tarpas apačioje */
+      border-bottom: 2px solid rgba(252, 176, 22, 0.3); /* subtili linija tarp header ir turinio */
+      background: var(--lighter);
+    }
+    
+    main {
+      flex: 1;
+      padding: 1.5rem 1rem 6rem; /* didesnis viršutinis tarpas po header */
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     header img {
@@ -60,13 +69,6 @@
       font-size: 1rem;
       color: #666;
       margin: 0 0 1rem;
-    }
-
-    main {
-      flex: 1;
-      padding: 0 1rem 6rem;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
     .product {
@@ -145,16 +147,39 @@
       margin-top: 0.5rem;
     }
 
-    @media (max-width: 480px) {
-      .product {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      select {
-        margin-top: 0.5rem;
-        align-self: flex-end;
-      }
-    }
+@media (max-width: 480px) {
+  header img {
+    width: 180px; /* mažesnis logotipas mažame ekrane */
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    padding-top: 1rem; /* išlaikomas švelnus tarpas */
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: stretch; /* kad select nebūtų prilipęs prie kairės */
+  }
+
+  .product > div {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
   </style>
 </head>
 <body>
