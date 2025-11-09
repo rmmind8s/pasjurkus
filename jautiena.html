@@ -196,6 +196,22 @@ button:hover {
       "Antrekotas", "Guliašinė", "Kulninė"
     ];
 
+    const products = [
+      { name: "Nugarinė", desc: "Pakuotė nuo 0.7 iki 1.2 kg" },
+      { name: "Sprandinė", desc: "Vienetai po ~1 kg" },
+      { name: "Išpjova", desc: "Mažesnės pakuotės" },
+      { name: "Kumpis", desc: "Natūraliai brandintas" },
+      { name: "Mentė", desc: "Sutrinta pakuotė 0.5–1 kg" },
+      { name: "Faršas", desc: "Pakuotė nuo 0.7 iki 1.2 kg" },
+      { name: "Šonkauliai", desc: "Vienetai po ~1 kg" },
+      { name: "Brisketas", desc: "Mažesnės pakuotės" },
+      { name: "Kaulai", desc: "Natūraliai brandintas" },
+      { name: "Flanksteikas", desc: "Sutrinta pakuotė 0.5–1 kg" },
+      { name: "Antrekotas", desc: "Mažesnės pakuotės" },
+      { name: "Guliašinė", desc: "Natūraliai brandintas" },
+      { name: "Kulninė su kaulu", desc: "Pakuotė 0.65 kg" }
+    ];
+
     const container = document.getElementById('products');
 
     products.forEach(name => {
@@ -203,10 +219,10 @@ button:hover {
       div.className = 'product';
       div.innerHTML = `
         <div>
-          <div class="product-name">${name}</div>
-          <div class="product-desc">Pakuotė nuo 0.7 iki 1.2 kg</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-desc">${product.desc}</div>
         </div>
-        <select id="${name}" name="${name}">
+        <select id="${product.name}" name="${product.name}">
           ${Array.from({ length: 21 }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
         </select>
       `;
@@ -215,11 +231,11 @@ button:hover {
 
     document.getElementById('orderBtn').addEventListener('click', () => {
       const selected = products
-        .map(p => {
-          const val = document.getElementById(p).value;
-          return val > 0 ? `${p}: ${val}` : null;
-        })
-        .filter(Boolean);
+      .map(p => {
+        const val = document.getElementById(p.name).value;
+        return val > 0 ? `${p.name}: ${val}` : null;
+      })
+      .filter(Boolean);
 
       if (selected.length === 0) {
         alert("Pasirinkite bent vieną produktą.");
