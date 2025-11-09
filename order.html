@@ -6,88 +6,185 @@
   <title>Jautienos užsakymas 🥩</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #fafafa;
       margin: 0;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
     }
-    .order-box {
+
+    .order-sheet {
       background: #fff;
-      padding: 25px 35px;
+      padding: 40px 50px;
       border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      max-width: 600px;
+      width: 100%;
     }
+
     h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #222;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
       color: #333;
-      margin-bottom: 20px;
     }
-    select, input[type=number] {
-      width: 200px;
-      padding: 8px;
-      font-size: 16px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    button {
-      background: #28a745;
-      color: white;
+
+    .quantity-control button {
+      width: 28px;
+      height: 28px;
       border: none;
-      padding: 10px 25px;
-      font-size: 16px;
-      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 4px;
+      font-size: 18px;
       cursor: pointer;
-      margin-top: 10px;
     }
-    button:hover {
-      background: #218838;
+
+    .quantity-control button:hover {
+      background-color: #218838;
+    }
+
+    .quantity-control input {
+      width: 50px;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    button#orderBtn {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button#orderBtn:hover {
+      background-color: #218838;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <div class="order-box">
+  <div class="order-sheet">
     <h1>Jautienos užsakymas 🥩</h1>
 
-    <label for="product">Pasirinkite produktą:</label><br>
-    <select id="product" name="product">
-      <option value="Nugarinė">Nugarinė</option>
-      <option value="Sprandinė">Sprandinė</option>
-      <option value="Išpjova">Išpjova</option>
-      <option value="Kumpis">Kumpis</option>
-      <option value="Mentė">Mentė</option>
-      <option value="Faršas">Faršas</option>
-      <option value="Šonkauliai">Šonkauliai</option>
-      <option value="Brisketas">Brisketas</option>
-      <option value="Kaulai">Kaulai</option>
-      <option value="Flanksteikas">Flanksteikas</option>
-      <option value="Antrekotas">Antrekotas</option>
-      <option value="Guliašinė">Guliašinė</option>
-      <option value="Kulninė">Kulninė</option>
-    </select>
-    <br>
+    <table>
+      <thead>
+        <tr>
+          <th>Produktas</th>
+          <th>Kiekis (kg)</th>
+        </tr>
+      </thead>
+      <tbody id="productTable">
+        <tr><td>Nugarinė</td><td class="quantity-cell"></td></tr>
+        <tr><td>Sprandinė</td><td class="quantity-cell"></td></tr>
+        <tr><td>Išpjova</td><td class="quantity-cell"></td></tr>
+        <tr><td>Kumpis</td><td class="quantity-cell"></td></tr>
+        <tr><td>Mentė</td><td class="quantity-cell"></td></tr>
+        <tr><td>Faršas</td><td class="quantity-cell"></td></tr>
+        <tr><td>Šonkauliai</td><td class="quantity-cell"></td></tr>
+        <tr><td>Brisketas</td><td class="quantity-cell"></td></tr>
+        <tr><td>Kaulai</td><td class="quantity-cell"></td></tr>
+        <tr><td>Flanksteikas</td><td class="quantity-cell"></td></tr>
+        <tr><td>Antrekotas</td><td class="quantity-cell"></td></tr>
+        <tr><td>Guliašinė</td><td class="quantity-cell"></td></tr>
+        <tr><td>Kulninė</td><td class="quantity-cell"></td></tr>
+      </tbody>
+    </table>
 
-    <label for="quantity">Kiekis (kg):</label><br>
-    <input type="number" id="quantity" name="quantity" min="1" step="1" value="1">
-    <br>
-
-    <button onclick="sendOrder()">Užsakyti</button>
+    <button id="orderBtn">Užsakyti</button>
+    <div class="note">Paspaudus „Užsakyti“, būsite nukreipti į WhatsApp užsakymo patvirtinimui.</div>
   </div>
 
   <script>
-    function sendOrder() {
-      const product = document.getElementById("product").value;
-      const quantity = document.getElementById("quantity").value;
-      const phone = "37061649775";
-      const message = `Sveiki! Noriu užsisakyti ${quantity} kg (${product}) 🥩`;
+    const phone = "37061649775";
+    const rows = document.querySelectorAll("#productTable tr");
+
+    // Sukuriame kiekio valdiklius
+    rows.forEach(row => {
+      const td = row.querySelector(".quantity-cell");
+      const control = document.createElement("div");
+      control.className = "quantity-control";
+
+      const minus = document.createElement("button");
+      minus.textContent = "−";
+
+      const input = document.createElement("input");
+      input.type = "number";
+      input.value = 0;
+      input.min = 0;
+      input.step = 1;
+
+      const plus = document.createElement("button");
+      plus.textContent = "+";
+
+      minus.onclick = () => {
+        if (input.value > 0) input.value = parseInt(input.value) - 1;
+      };
+      plus.onclick = () => {
+        input.value = parseInt(input.value) + 1;
+      };
+
+      control.append(minus, input, plus);
+      td.appendChild(control);
+    });
+
+    document.getElementById("orderBtn").onclick = () => {
+      const items = [];
+      rows.forEach(row => {
+        const product = row.cells[0].textContent;
+        const qty = row.querySelector("input").value;
+        if (qty > 0) items.push(`${product} – ${qty} kg`);
+      });
+
+      if (items.length === 0) {
+        alert("Prašome pasirinkti bent vieną produktą.");
+        return;
+      }
+
+      const message = `Sveiki! Noriu užsisakyti:\n\n${items.join("\n")}\n\n🥩`;
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
-    }
+    };
   </script>
 
 </body>
