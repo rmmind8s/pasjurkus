@@ -236,13 +236,13 @@ button:hover {
         div.className = 'product';
         div.innerHTML = `
           <div>
-            <div class="product-name">${product."Name"}</div>
-            <div class="product-desc">${product."Description"}</div>
+            <div class="product-name">${product.["Name"]}</div>
+            <div class="product-desc">${product.["Description"]}</div>
           </div>
           <div class="select-wrapper">
             <i class="fas fa-trash clear-icon"></i>
-            <select id="${product."SKU"}" name="${product."SKU"}">
-              ${Array.from({ length: product."Balance" }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
+            <select id="${product.["SKU"]}" name="${product.["SKU"]}">
+              ${Array.from({ length: product.["Balance"] }, (_, i) => `<option value="${i}">${i}</option>`).join('')}
             </select>
           </div>
         `;
@@ -266,8 +266,8 @@ button:hover {
   document.getElementById('orderBtn').addEventListener('click', () => {
     const selected = products
       .map(p => {
-        const val = document.getElementById(p.name).value;
-        return val > 0 ? `${p.name}: ${val}` : null;
+        const val = document.getElementById(p["SKU"]).value;
+        return val > 0 ? `${p["SKU"]}: ${val}` : null;
       })
       .filter(Boolean);
   
