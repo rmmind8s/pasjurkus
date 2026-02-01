@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://pasjurkus.lt/jautiena.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jautienos užsakymas | Pas Jurkus prie Jūros &#127958;">
-  <meta property="og:description" content="Užsisakykite šviežią jautieną tiesiai iš mūsų ūkio. Natūraliai auginta, vietinė ir paruošta su rūpesčiu – tikra ūkio kokybė Jūsų stalui.">
+  <meta property="og:description" content="Užsisakykite šviežią jautieną tiesiai iš mūsų ūkio. Natūraliai auginta, vietinė ir paruošta su rūpesčiu – tikra ūkio kokybė Jūsų stal[...]">
   <meta property="og:image" content="./img/og-image.png">
   
   <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
@@ -116,6 +116,14 @@ main {
   /*flex: 1;*/
 }
 
+.product-price {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 70px;
+  color: var(--dark);
+}
+
 select {
   flex-shrink: 0;
 }
@@ -192,7 +200,7 @@ button:hover {
     font-size: 0.95rem;
   }
 }
-</style>
+  </style>
 
 </head>
 <body>
@@ -209,7 +217,7 @@ button:hover {
   <footer>
     <button id="orderBtn">Užsakyti</button>
     <div class="footer-note">
-      Paspauskite mygtuką ir išsiųskite užsakymo žinutę per „WhatsApp“ <i class="fa-brands fa-whatsapp"></i>
+      Paspauskite mygtuką ir išsiųskite užsakymo žinutę per „WhatsApp" <i class="fa-brands fa-whatsapp"></i>
     </div>
 
   </footer>
@@ -237,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="product-name">${product["Name"]}</div>
           <div class="product-desc">${product["Description"]}</div>
         </div>
+        <div class="product-price">${product["Price"]}</div>
         <div class="select-wrapper">
           <i class="fas fa-trash clear-icon" style="display:none"></i>
           <select id="${product["SKU"]}">
@@ -267,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('orderBtn').addEventListener('click', () => {
     const selected = products
       .map(p => {
-        const val = document.getElementById(p["SKU"]).value;
+        const val = document.getElementById(p["SKU"].value);
         return val > 0 ? `${p["Name"]}: ${val}` : null;
       })
       .filter(Boolean);
