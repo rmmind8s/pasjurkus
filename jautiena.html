@@ -247,16 +247,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let products = [];
   const container = document.getElementById('products');
   const totalAmountEl = document.getElementById('total-amount');
-  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR' });
 
-  function updateTotal() {
-    const total = products.reduce((acc, p) => {
-      const qtyEl = document.getElementById(p["SKU"]);
-      const qty = qtyEl ? Number(qtyEl.value) : 0;
-      const price = Number(p["Price"]) || 0;
-      return acc + qty * price;
-    }, 0);
-    totalAmountEl.textContent = priceFormatter.format(total);
+  function formatCurrencyCode(value, { locale = 'lt-LT', currency = 'EUR' } = {}) {
+    const num = Number(value) || 0;
+    try {
+      const f = new Intl.NumberFormat(locale, { style: 'currency', currency, currencyDisplay: 'code' });
+      const res = f.format(num);
+      if (res.includes(currency)) return res;
+      const parts = new Intl.NumberFormat(locale, { style: 'currency', currency }).formatToParts(num);
+      const number = parts
+        .filter(p => ['integer','group','decimal','fraction'].includes(p.type))
+        .map(p => p.value)
+        .join('');
+      return `${number} ${currency}`;
+    } catch (e) {
+      return `${num.toFixed(2)} ${currency}`;
+    }
   }
 
   async function loadProducts() {
@@ -266,6 +272,16 @@ document.addEventListener('DOMContentLoaded', () => {
     products = await response.json();
   }
 
+  function updateTotal() {
+    const total = products.reduce((acc, p) => {
+      const qtyEl = document.getElementById(p["SKU"]);
+      const qty = qtyEl ? Number(qtyEl.value) : 0;
+      const price = Number(p["Price"]) || 0;
+      return acc + qty * price;
+    }, 0);
+    totalAmountEl.textContent = formatCurrencyCode(total);
+  }
+
   loadProducts().then(() => {
     products.forEach(product => {
       const div = document.createElement('div');
@@ -273,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // formatted price (ensure numeric)
       const unitPrice = Number(product["Price"]) || 0;
-      const formattedPrice = priceFormatter.format(unitPrice);
+      const formattedPrice = formatCurrencyCode(unitPrice);
 
       div.innerHTML = `
         <div class="product-info">
@@ -286,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <select id="${product["SKU"]}">
             ${Array.from(
               { length: (Number(product["Balance"]) || 0) + 1 },
-              (_, i) => `<option value="${i}">${i}</option>`
+              (_, i) => `<option value="${i}">${i}</option>"
             ).join('')}
           </select>
         </div>
@@ -318,8 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(p => {
         const val = Number(document.getElementById(p["SKU"]).value);
         if (!val || val <= 0) return null;
-        const unit = priceFormatter.format(Number(p["Price"]) || 0);
-        const total = priceFormatter.format((Number(p["Price"]) || 0) * val);
+        const unit = formatCurrencyCode(Number(p["Price"]) || 0);
+        const total = formatCurrencyCode((Number(p["Price"]) || 0) * val);
         return `${p["Name"]}: ${val} x ${unit} = ${total}`;
       })
       .filter(Boolean);
