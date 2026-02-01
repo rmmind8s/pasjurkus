@@ -223,33 +223,38 @@ button:hover {
   }
 }
 
-    @keyframes pulseOpacity {
-      0%   { opacity: 0.4; }
-      50%  { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
+  .loader {
+    width: 32px;
+    height: 32px;
+    border: 4px solid rgba(0, 0, 0, 0.15);
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
+  .loader {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+  }
     
-    .header--loading {
-      animation: pulseOpacity 1.2s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
     }
+  }
     
   </style>
 </head>
 <body>
-  <header id="pageHeader" class="header--loading">
+  <header>
     <a href="https://pasjurkus.lt/"><img src="https://pasjurkus.lt/img/logo-brown.png" alt="Jurkų Šeimos Ūkis logotipas"></a>
     <h1>Jurkų Šeimos Ūkis</h1>
     <h2>Jautienos užsakymas</h2>
   </header>
-  <script>
-    window.addEventListener('load', () => {
-      document
-        .getElementById('pageHeader')
-        .classList.remove('header--loading');
-    });
-  </script>
+  
   <main>
-    <div id="products"></div>
+    <div id="products"><div class="loader"></div></div>
   </main>
 
   <footer>
