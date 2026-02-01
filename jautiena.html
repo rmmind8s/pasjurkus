@@ -108,7 +108,7 @@ main {
   text-align: right;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .select-wrapper .clear-icon {
@@ -298,13 +298,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="product-price">${formattedPrice}</div>
         <div class="select-wrapper">
-          <i class="fas fa-trash clear-icon" style="display:none"></i>
           <select id="${product["SKU"]}">
             ${Array.from(
               { length: (Number(product["Balance"]) || 0) + 1 },
               (_, i) => `<option value="${i}">${i}</option>`
             ).join('')}
           </select>
+          <i class="fas fa-trash clear-icon" style="display:none"></i>
         </div>
       `;
 
