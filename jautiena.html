@@ -66,7 +66,7 @@ header {
 header img {
   width: 240px;
   height: auto;
-  max-width: 100%;
+  max-width: 100%%;
 }
 
 h1 {
@@ -96,7 +96,7 @@ main {
   justify-content: flex-start; /* left pack so info grows and price+select stay right */
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
-  width: 100%;
+  width: 100%%;
 }
 
 .product-info { /* left column that grows */
@@ -129,7 +129,7 @@ main {
 /* make all quantity selects equal width */
 .select-wrapper select {
   width: 84px; /* fixed width for all quantity selects on desktop */
-  max-width: 100%;
+  max-width: 100%%;
   box-sizing: border-box;
   flex-shrink: 0;
   padding: 0.3rem 0.5rem;
@@ -164,7 +164,7 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100%%;
   background: var(--dark);
   border-top: 1px solid #ddd;
   padding: 1rem;
@@ -180,7 +180,7 @@ button {
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
-  width: 100%;
+  width: 100%%;
   max-width: 400px;
   display: block;
   margin: 0 auto;
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <select id="${product["SKU"]}">
             ${Array.from(
               { length: (Number(product["Balance"]) || 0) + 1 },
-              (_, i) => `<option value="${i}">${i}</option>"
+              (_, i) => `<option value="${i}">${i}</option>`
             ).join('')}
           </select>
         </div>
