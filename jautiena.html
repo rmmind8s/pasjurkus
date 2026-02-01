@@ -126,8 +126,21 @@ main {
   color: var(--dark);
 }
 
-select {
+/* make all quantity selects equal width */
+.select-wrapper select {
+  width: 84px; /* fixed width for all quantity selects on desktop */
+  max-width: 100%;
+  box-sizing: border-box;
   flex-shrink: 0;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+select {
+  /* fallback for other selects if any */
 }
 
 .product-name {
@@ -144,14 +157,6 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-select {
-  padding: 0.3rem 0.5rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  background: #fff;
 }
 
 footer {
@@ -206,6 +211,11 @@ button:hover {
 
   h2 {
     font-size: 0.95rem;
+  }
+
+  /* reduce select width on small screens */
+  .select-wrapper select {
+    width: 56px;
   }
 }
   </style>
