@@ -93,10 +93,15 @@ main {
 .product {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* svarbu! */
+  justify-content: flex-start; /* left pack so info grows and price+select stay right */
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
   width: 100%;
+}
+
+.product-info { /* left column that grows */
+  flex: 1;
+  min-width: 0; /* allow truncation if needed */
 }
 
 .select-wrapper {
@@ -112,15 +117,12 @@ main {
   display: none;
 }
 
-.product > div {
-  /*flex: 1;*/
-}
-
 .product-price {
   font-size: 1rem;
   font-weight: 600;
-  text-align: center;
+  text-align: right;
   min-width: 70px;
+  margin-right: 0.5rem;
   color: var(--dark);
 }
 
@@ -131,11 +133,17 @@ select {
 .product-name {
   font-size: 1rem;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-desc {
   font-size: 0.8rem;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 select {
@@ -227,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let products = [];
   const container = document.getElementById('products');
+  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR' });
 
   async function loadProducts() {
     const response = await fetch(
@@ -240,17 +249,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const div = document.createElement('div');
       div.className = 'product';
 
+      // formatted price (ensure numeric)
+      const unitPrice = Number(product["Price"]) || 0;
+      const formattedPrice = priceFormatter.format(unitPrice);
+
       div.innerHTML = `
-        <div>
+        <div class="product-info">
           <div class="product-name">${product["Name"]}</div>
           <div class="product-desc">${product["Description"]}</div>
         </div>
-        <div class="product-price">${product["Price"]}</div>
+        <div class="product-price">${formattedPrice}</div>
         <div class="select-wrapper">
           <i class="fas fa-trash clear-icon" style="display:none"></i>
           <select id="${product["SKU"]}">
             ${Array.from(
-              { length: product["Balance"] + 1 },
+              { length: (Number(product["Balance"]) || 0) + 1 },
               (_, i) => `<option value="${i}">${i}</option>`
             ).join('')}
           </select>
@@ -276,8 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('orderBtn').addEventListener('click', () => {
     const selected = products
       .map(p => {
-        const val = document.getElementById(p["SKU"].value);
-        return val > 0 ? `${p["Name"]}: ${val}` : null;
+        const val = Number(document.getElementById(p["SKU"]).value);
+        if (!val || val <= 0) return null;
+        const unit = priceFormatter.format(Number(p["Price"]) || 0);
+        const total = priceFormatter.format((Number(p["Price"]) || 0) * val);
+        return `${p["Name"]}: ${val} x ${unit} = ${total}`;
       })
       .filter(Boolean);
 
