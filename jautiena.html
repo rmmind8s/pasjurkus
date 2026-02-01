@@ -243,6 +243,33 @@ button:hover {
       transform: rotate(360deg);
     }
   }
+
+  .orderList {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .orderBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+  }
+  
+  .orderBtn i {
+    font-size: 24px;
+  }
+  
+  .orderBtn span {
+    font-size: 12px;
+  }
     
   </style>
 </head>
@@ -258,10 +285,35 @@ button:hover {
   </main>
 
   <footer>
-    <button class="orderBtn" onclick="goToOrder('SMS')"><i class="fa-solid fa-comment-sms"></i></button>
-    <button class="orderBtn" onclick="goToOrder('WhatsApp')"><i class="fa-brands fa-whatsapp"></i></button>
-    <button class="orderBtn" onclick="goToOrder('Viber')"><i class="fa-brands fa-viber"></i></button>
-    <button class="orderBtn" onclick="goToOrder('Telegram')"><i class="fa-brands fa-telegram"></i></button>
+<ul class="orderList">
+  <li>
+    <button class="orderBtn" type="button" onclick="goToOrder('SMS')">
+      <i class="fa-solid fa-comment-sms" aria-hidden="true" aria-label="Užsakyti naudojant SMS"></i>
+      <span>SMS</span>
+    </button>
+  </li>
+
+  <li>
+    <button class="orderBtn" type="button" onclick="goToOrder('WhatsApp')">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true" aria-label="Užsakyti per WhatsApp"></i>
+        <span>WhatsApp</span>
+      </button>
+    </li>
+  
+    <li>
+      <button class="orderBtn" type="button" onclick="goToOrder('Viber')">
+        <i class="fa-brands fa-viber" aria-hidden="true" aria-label="Užsakyti per Viber"></i>
+        <span>Viber</span>
+      </button>
+    </li>
+  
+    <li>
+      <button class="orderBtn" type="button" onclick="goToOrder('Telegram')">
+        <i class="fa-brands fa-telegram" aria-hidden="true" aria-label="Užsakyti per Telegram"></i>
+        <span>Telegram</span>
+      </button>
+    </li>
+  </ul>
     <div class="footer-note">
       Preliminari krepšelio suma: <span id="total-amount">0</span>
     </div>
