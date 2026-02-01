@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let message = "Sveiki, noriu užsisakyti:\n\n" + selected.join("\n") + "\n\n" + "🥩";
+    let message = "Sveiki, noriu užsisakyti:\n\n" + selected.join("\n") + "\n\n🥩";
     const encoded = encodeURIComponent(message);
     window.location.href = `https://wa.me/37062804118?text=${encoded}`;
   });
