@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!val || val <= 0) return null;
         const unit = formatCurrencyCode(Number(p["Price"]) || 0);
         const total = formatCurrencyCode((Number(p["Price"]) || 0) * val);
-        return `${p["Name"]}: ${val} x ${unit} = ${total}`;
+        return `${p["Name"]}: ${val}`;
       })
       .filter(Boolean);
 
