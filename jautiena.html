@@ -331,8 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <i class="fas fa-trash clear-icon" style="display:none"></i>
         </div>
       `;
-
-      document.getElementById('loader').remove();
       
       container.appendChild(div);
 
@@ -350,6 +348,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTotal();
       });
     });
+
+    document.getElementById('loader').remove();
 
     // initial total (all zeros)
     updateTotal();
