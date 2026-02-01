@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let message = "Užsakymas:\n\n" + selected.join("\n") + "\n\n(siųsk šią žinutę, kad pateiktum užsakymą)";
+    let message = "Užsakymas:\n\n" + selected.join("\n");
     const encoded = encodeURIComponent(message);
     window.location.href = `https://wa.me/37062804118?text=${encoded}`;
   });
