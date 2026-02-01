@@ -137,6 +137,7 @@ main {
   border: 1px solid #ccc;
   font-size: 0.95rem;
   background: #fff;
+  text-align: center;
 }
 
 select {
@@ -235,7 +236,7 @@ button:hover {
   <footer>
     <button id="orderBtn">Užsakyti</button>
     <div class="footer-note">
-      Preliminari krepšelio suma: <span id="total-amount">0</span> EUR
+      Preliminari krepšelio suma: <span id="total-amount">0</span>
     </div>
 
   </footer>
@@ -245,7 +246,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let products = [];
   const container = document.getElementById('products');
-  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' });
+  const totalAmountEl = document.getElementById('total-amount');
+  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR' });
+
+  function updateTotal() {
+    const total = products.reduce((acc, p) => {
+      const qtyEl = document.getElementById(p["SKU"]);
+      const qty = qtyEl ? Number(qtyEl.value) : 0;
+      const price = Number(p["Price"]) || 0;
+      return acc + qty * price;
+    }, 0);
+    totalAmountEl.textContent = priceFormatter.format(total);
+  }
 
   async function loadProducts() {
     const response = await fetch(
@@ -287,13 +299,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       select.addEventListener('change', () => {
         icon.style.display = select.value > 0 ? 'inline-block' : 'none';
+        updateTotal();
       });
 
       icon.addEventListener('click', () => {
         select.value = 0;
         icon.style.display = 'none';
+        updateTotal();
       });
     });
+
+    // initial total (all zeros)
+    updateTotal();
   });
 
   document.getElementById('orderBtn').addEventListener('click', () => {
