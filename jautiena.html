@@ -258,7 +258,10 @@ button:hover {
   </main>
 
   <footer>
-    <button id="orderBtn">Užsakyti <i class="fa-solid fa-cart-shopping"></i></button>
+    <button class="orderBtn" onclick="goToOrder('SMS')"><i class="fa-solid fa-comment-sms"></i></button>
+    <button class="orderBtn" onclick="goToOrder('WhatsApp')"><i class="fa-brands fa-whatsapp"></i></button>
+    <button class="orderBtn" onclick="goToOrder('Viber')"><i class="fa-brands fa-viber"></i></button>
+    <button class="orderBtn" onclick="goToOrder('Telegram')"><i class="fa-brands fa-telegram"></i></button>
     <div class="footer-note">
       Preliminari krepšelio suma: <span id="total-amount">0</span>
     </div>
@@ -355,13 +358,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTotal();
   });
 
-  document.getElementById('orderBtn').addEventListener('click', () => {
+  function goToOrder(msgApp) {
     const selected = products
       .map(p => {
         const val = Number(document.getElementById(p["SKU"]).value);
         if (!val || val <= 0) return null;
-        const unit = formatCurrencyCode(Number(p["Price"]) || 0);
-        const total = formatCurrencyCode((Number(p["Price"]) || 0) * val);
         return `${p["Name"]}: ${val}`;
       })
       .filter(Boolean);
@@ -374,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let message = "Užsakymas:\n\n" + selected.join("\n");
     const encoded = encodeURIComponent(message);
     window.location.href = `https://wa.me/37062804118?text=${encoded}`;
-  });
+  };
 
 });
 </script>
