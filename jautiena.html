@@ -235,7 +235,7 @@ button:hover {
   <footer>
     <button id="orderBtn">Užsakyti</button>
     <div class="footer-note">
-      Paspauskite mygtuką ir išsiųskite užsakymo žinutę per „WhatsApp" <i class="fa-brands fa-whatsapp"></i>
+      Preliminari krepšelio suma: <span id="total-amount">0</span> EUR
     </div>
 
   </footer>
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let products = [];
   const container = document.getElementById('products');
-  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR' });
+  const priceFormatter = new Intl.NumberFormat('lt-LT', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' });
 
   async function loadProducts() {
     const response = await fetch(
