@@ -429,28 +429,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-  function generateOrderId() {
-    const now = new Date();
-  
-    // YYMMDD
-    const yy = String(now.getFullYear()).slice(-2);
-    const mm = String(now.getMonth() + 1).padStart(2, '0'); // 0-11
-    const dd = String(now.getDate()).padStart(2, '0');
-  
-    // MISS
-    const hh = String(now.getHours()).padStart(2, '0');
-    const min = String(now.getMinutes()).padStart(2, '0');
-    const ss = String(now.getSeconds()).padStart(2, '0');
-  
-    // XYZ – 3 atsitiktinės didžiosios raidės
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let xyz = '';
-    for (let i = 0; i < 3; i++) {
-      xyz += letters.charAt(Math.floor(Math.random() * letters.length));
-    }
-  
-    return "#" + yy + mm + dd + hh + min + ss + xyz;
+function generateLetterDateOrderId() {
+  const now = new Date();
+
+  const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // lengviau diktuoti, be I,O
+
+  // pagal data
+  const year = letters[now.getFullYear() % 26]; // paskutiniai metai mod 26
+  const month = letters[now.getMonth()];        // 0–11
+  const day = letters[(now.getDate()-1) % 26];  // 1–31
+  const hour = letters[now.getHours() % 26];
+  const min = letters[now.getMinutes() % 26];
+
+  // 2 atsitiktinės raidės
+  let suffix = '';
+  for(let i=0;i<2;i++){
+    suffix += letters.charAt(Math.floor(Math.random()*letters.length));
   }
+
+  return year + month + day + hour + min + suffix;
+}
   
 </script>
 
