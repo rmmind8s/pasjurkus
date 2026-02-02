@@ -111,12 +111,6 @@ main {
   gap: 1rem;
 }
 
-.select-wrapper .clear-icon {
-  cursor: pointer;
-  color: var(--dark);
-  display: none;
-}
-
 .product-price {
   font-size: 1rem;
   text-align: right;
@@ -382,25 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
               (_, i) => `<option value="${i}">${i}</option>`
             ).join('')}
           </select>
-          <i class="fas fa-trash clear-icon" style="display:none"></i>
         </div>
       `;
       
       container.appendChild(div);
 
       const select = div.querySelector('select');
-      const icon = div.querySelector('.clear-icon');
 
       select.addEventListener('change', () => {
-        icon.style.display = select.value > 0 ? 'inline-block' : 'none';
         updateTotal();
       });
 
-      icon.addEventListener('click', () => {
-        select.value = 0;
-        icon.style.display = 'none';
-        updateTotal();
-      });
     });
 
     document.getElementById('loader').remove();
