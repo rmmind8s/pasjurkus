@@ -182,7 +182,6 @@ button {
   color: var(--dark);
   background-color: var(--deep);
   padding: 0.5rem;
-  border-top: 1px solid var(--dark);
 }
 
 @media (max-width: 480px) {
@@ -248,7 +247,7 @@ button {
     font: inherit;
     width: 100%;
   }
-
+/*
   .orderList li:active, .orderList li:hover { 
     background-color: var(--light);
   }
@@ -256,7 +255,7 @@ button {
   .orderList li:active .orderBtn, .orderList li:hover .orderBtn { 
     color: var(--dark);
   }
-    
+  */  
   
   .orderBtn i {
     font-size: 24px;
@@ -436,24 +435,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-function generateOrderId() {
-  const now = new Date();
-
-  // diena + laikas
-  const dd = String(now.getDate()).padStart(2,'0');  // 01–31
-  const hh = String(now.getHours()).padStart(2,'0'); // 00–23
-  const mm = String(now.getMinutes()).padStart(2,'0'); // 00–59
-  const ss = String(now.getSeconds()).padStart(2,'0'); // 00–59
-
-  // 2 atsitiktinės raidės (lengvai diktuojamos, be I, O)
-  const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-  let suffix = '';
-  for(let i=0;i<2;i++){
-    suffix += letters.charAt(Math.floor(Math.random()*letters.length));
+  function generateOrderId() {
+    const now = new Date();
+  
+    // YY MM DD → base36 (0–9A–Z)
+    const yy = (now.getFullYear() % 100).toString(36).toUpperCase();
+    const mm = (now.getMonth() + 1).toString(36).toUpperCase();
+    const dd = now.getDate().toString(36).toUpperCase();
+  
+    // laikas (HHMM)
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mi = String(now.getMinutes()).padStart(2, '0');
+  
+    // 2 atsitiktiniai simboliai
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let rnd = '';
+    for (let i = 0; i < 2; i++) {
+      rnd += chars[Math.floor(Math.random() * chars.length)];
+    }
+  
+    return `#${yy}${mm}${dd}${hh}${mi}${rnd}`;
   }
-
-  return "#" + dd + hh + mm + ss + suffix; // pvz.: "02134512AB"
-}
   
 </script>
 
