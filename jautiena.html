@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
   
-    let message = "Užsakymas\n" + selected.join("\n") + "\n***";
+    let message = "Užsakymas " + generateOrderId() + "\n***" + selected.join("\n") + "\n***";
     const encoded = encodeURIComponent(message);
   
     switch (msgApp) {
@@ -428,6 +428,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+  function generateOrderId() {
+    const now = new Date();
+  
+    // YYMMDD
+    const yy = String(now.getFullYear()).slice(-2);
+    const mm = String(now.getMonth() + 1).padStart(2, '0'); // 0-11
+    const dd = String(now.getDate()).padStart(2, '0');
+  
+    // MISS
+    const hh = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const ss = String(now.getSeconds()).padStart(2, '0');
+  
+    // XYZ – 3 atsitiktinės didžiosios raidės
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let xyz = '';
+    for (let i = 0; i < 3; i++) {
+      xyz += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+  
+    return "#" + yy + mm + dd + hh + min + ss + xyz;
+  }
+  
 </script>
 
 </body>
