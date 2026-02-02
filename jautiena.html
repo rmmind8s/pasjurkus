@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
   
-    let message = "Užsakymas " + generateOrderId() + "\n***" + selected.join("\n") + "\n***";
+    let message = "Užsakymas " + generateOrderId() + "\n***\n" + selected.join("\n") + "\n***";
     const encoded = encodeURIComponent(message);
   
     switch (msgApp) {
@@ -432,22 +432,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function generateOrderId() {
   const now = new Date();
 
-  const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // lengviau diktuoti, be I,O
+  // diena + laikas
+  const dd = String(now.getDate()).padStart(2,'0');  // 01–31
+  const hh = String(now.getHours()).padStart(2,'0'); // 00–23
+  const mm = String(now.getMinutes()).padStart(2,'0'); // 00–59
+  const ss = String(now.getSeconds()).padStart(2,'0'); // 00–59
 
-  // pagal data
-  const year = letters[now.getFullYear() % 26]; // paskutiniai metai mod 26
-  const month = letters[now.getMonth()];        // 0–11
-  const day = letters[(now.getDate()-1) % 26];  // 1–31
-  const hour = letters[now.getHours() % 26];
-  const min = letters[now.getMinutes() % 26];
-
-  // 2 atsitiktinės raidės
+  // 2 atsitiktinės raidės (lengvai diktuojamos, be I, O)
+  const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
   let suffix = '';
   for(let i=0;i<2;i++){
     suffix += letters.charAt(Math.floor(Math.random()*letters.length));
   }
 
-  return year + month + day + hour + min + suffix;
+  return "#" + dd + hh + mm + ss + suffix; // pvz.: "02134512AB"
 }
   
 </script>
