@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
   
-    let message = "Užsakymas:\n\n" + selected.join("\n");
+    let message = "Užsakymas:\n" + selected.join("\n") + "\nIš pasjurkus.lt";
     const encoded = encodeURIComponent(message);
   
     switch (msgApp) {
