@@ -280,28 +280,21 @@ button:hover {
   <footer>
 <ul class="orderList">
   <li>
-    <button class="orderBtn" type="button" onclick="goToOrder('SMS')">
+    <button class="orderBtn" type="button" data-app="SMS">
       <i class="fa-solid fa-comment-sms" aria-hidden="true" aria-label="Užsakyti naudojant SMS"></i>
       <span>SMS</span>
     </button>
   </li>
 
   <li>
-    <button class="orderBtn" type="button" onclick="goToOrder('WhatsApp')">
+    <button class="orderBtn" type="button" data-app="WhatsApp">
         <i class="fa-brands fa-whatsapp" aria-hidden="true" aria-label="Užsakyti per WhatsApp"></i>
         <span>WhatsApp</span>
       </button>
     </li>
   
     <li>
-      <button class="orderBtn" type="button" onclick="goToOrder('Viber')">
-        <i class="fa-brands fa-viber" aria-hidden="true" aria-label="Užsakyti per Viber"></i>
-        <span>Viber</span>
-      </button>
-    </li>
-  
-    <li>
-      <button class="orderBtn" type="button" onclick="goToOrder('Telegram')">
+      <button class="orderBtn" type="button" data-app="Telegram">
         <i class="fa-brands fa-telegram" aria-hidden="true" aria-label="Užsakyti per Telegram"></i>
         <span>Telegram</span>
       </button>
@@ -395,6 +388,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTotal();
   });
 
+  document.querySelectorAll('.orderBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const app = btn.dataset.app; // SMS / WhatsApp / Telegram
+      goToOrder(app);
+    });
+  });
+  
   function goToOrder(msgApp) {
     const selected = products
       .map(p => {
@@ -403,16 +403,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${p["Name"]}: ${val}`;
       })
       .filter(Boolean);
-
+  
     if (selected.length === 0) {
       alert("Pasirinkite bent vieną produktą.");
       return;
     }
-
+  
     let message = "Užsakymas:\n\n" + selected.join("\n");
     const encoded = encodeURIComponent(message);
-    window.location.href = `https://wa.me/37062804118?text=${encoded}`;
-  };
+  
+    switch (msgApp) {
+      case 'SMS':
+        window.location.href = `sms:37062804118?&body=${encoded}`;
+        break;
+  
+      case 'WhatsApp':
+        window.location.href = `https://wa.me/37062804118?text=${encoded}`;
+        break;
+  
+      case 'Telegram':
+        window.location.href = `https://t.me/+37062804118?text=${encoded}`;
+        break;
+    }
+  }
 
 });
 </script>
