@@ -111,13 +111,7 @@ main {
   gap: 1rem;
 }
 
-.product-price {
-  font-size: 1rem;
-  text-align: right;
-  min-width: 70px;
-  margin-right: 0.5rem;
-  color: var(--dark);
-}
+
 
 /* make all quantity selects equal width */
 .select-wrapper select {
@@ -175,13 +169,6 @@ button {
   cursor: pointer;
   display: block;
   box-sizing: border-box;
-}
-
-.footer-note {
-  font-size: 0.85rem;
-  color: var(--dark);
-  background-color: var(--deep);
-  padding: 0.5rem;
 }
 
 @media (max-width: 480px) {
@@ -265,10 +252,6 @@ button {
   .orderBtn span {
     font-size: 12px;
   }
-
-  #total-amount {
-    font-weight: bold;
-  }
     
   </style>
 </head>
@@ -306,9 +289,6 @@ button {
       </button>
     </li>
   </ul>
-    <div class="footer-note">
-      Preliminari krepšelio suma: <span id="total-amount">0</span>
-    </div>
 
   </footer>
 
@@ -317,24 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let products = [];
   const container = document.getElementById('products');
-  const totalAmountEl = document.getElementById('total-amount');
-
-  function formatCurrencyCode(value, { locale = 'lt-LT', currency = 'EUR' } = {}) {
-    const num = Number(value) || 0;
-    try {
-      const f = new Intl.NumberFormat(locale, { style: 'currency', currency, currencyDisplay: 'code' });
-      const res = f.format(num);
-      if (res.includes(currency)) return res;
-      const parts = new Intl.NumberFormat(locale, { style: 'currency', currency }).formatToParts(num);
-      const number = parts
-        .filter(p => ['integer','group','decimal','fraction'].includes(p.type))
-        .map(p => p.value)
-        .join('');
-      return `${number} ${currency}`;
-    } catch (e) {
-      return `${num.toFixed(2)} ${currency}`;
-    }
-  }
 
   async function loadProducts() {
     const response = await fetch(
@@ -343,31 +305,16 @@ document.addEventListener('DOMContentLoaded', () => {
     products = await response.json();
   }
 
-  function updateTotal() {
-    const total = products.reduce((acc, p) => {
-      const qtyEl = document.getElementById(p["SKU"]);
-      const qty = qtyEl ? Number(qtyEl.value) : 0;
-      const price = Number(p["Price"]) || 0;
-      return acc + qty * price;
-    }, 0);
-    totalAmountEl.textContent = formatCurrencyCode(total);
-  }
-
   loadProducts().then(() => {
     products.forEach(product => {
       const div = document.createElement('div');
       div.className = 'product';
-
-      // formatted price (ensure numeric)
-      const unitPrice = Number(product["Price"]) || 0;
-      const formattedPrice = formatCurrencyCode(unitPrice);
 
       div.innerHTML = `
         <div class="product-info">
           <div class="product-name">${product["Name"]}</div>
           <div class="product-desc">${product["Description"]}</div>
         </div>
-        <div class="product-price">${formattedPrice}</div>
         <div class="select-wrapper">
           <select id="${product["SKU"]}">
             ${Array.from(
@@ -382,16 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const select = div.querySelector('select');
 
-      select.addEventListener('change', () => {
-        updateTotal();
-      });
-
     });
 
     document.getElementById('loader').remove();
 
-    // initial total (all zeros)
-    updateTotal();
   });
 
   document.querySelectorAll('.orderBtn').forEach(btn => {
