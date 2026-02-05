@@ -135,6 +135,21 @@
       margin: 2rem auto;
     }
 
+    .footer-actions {
+        display: flex;
+      }
+      
+      .footer-actions .orderBtn {
+        flex: 1;
+        padding: 0.9rem 0;
+        color: var(--deep);
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+    
     @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
@@ -156,12 +171,20 @@
 </main>
 
 <footer>
-  <button class="orderBtn" id="telegramOrder">
-    <i class="fa-solid fa-bag-shopping"></i>
-    <!-- Unicode alternatyva: 🛒 -->
-    <span>Užsakyti per Telegram</span>
-  </button>
-  <div class="footer-note">Nepamirškite išsiųsti užsakymo žinutės</div>
+  <div class="footer-actions">
+    <a class="orderBtn" href="tel:+37062804118">
+      <i class="fa-solid fa-phone"></i>
+      <span>Teirautis</span>
+    </a>
+    <button class="orderBtn" id="telegramOrder">
+      <i class="fa-brands fa-telegram"></i>
+      <span>Telegram</span>
+    </button>
+  </div>
+
+  <div class="footer-note">
+    Užsakymai priimami per Telegram
+  </div>
 </footer>
 
 <script>
