@@ -176,15 +176,17 @@
       <i class="fa-solid fa-phone"></i>
       <span>Teirautis</span>
     </a>
-    <button class="orderBtn" id="telegramOrder">
-      <i class="fa-solid fa-bag-shopping"></i>
+    <button class="orderBtn" id="whatsappOrder">
+      <i class="fa-brands fa-whatsapp"></i>
       <span>Užsakyti</span>
     </button>
+
   </div>
 
   <div class="footer-note">
-    <i class="fa-solid fa-circle-info"></i> Užsakymo patvirtinimui nukreipsime į Telegram <i class="fa-brands fa-telegram"></i>
+    <i class="fa-solid fa-circle-info"></i> Užsakymo patvirtinimui nukreipsime į WhatsApp <i class="fa-brands fa-whatsapp"></i>
   </div>
+
 </footer>
 
 <script>
@@ -219,7 +221,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   loader.remove();
 
-  document.getElementById('telegramOrder').addEventListener('click', () => {
+  document.getElementById('whatsappOrder').addEventListener('click', () => {
     const selected = products
       .map(p => {
         const el = document.getElementById(`sku-${p.SKU}`);
@@ -239,7 +241,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       '\n***';
 
     window.location.href =
-      'https://t.me/+37062804118?text=' + encodeURIComponent(msg);
+      'https://wa.me/37062804118?text=' + encodeURIComponent(msg);
+
   });
 });
 
