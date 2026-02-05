@@ -172,7 +172,7 @@
 
 <footer>
   <div class="footer-actions">
-    <a class="orderBtn" href="tel:+37062804118">
+    <a class="orderBtn" style="display:none" href="tel:+37062804118">
       <i class="fa-solid fa-phone"></i>
       <span>Teirautis</span>
     </a>
@@ -183,7 +183,7 @@
   </div>
 
   <div class="footer-note">
-    Užsakymai priimami per Telegram
+    Užsakydami būsite nukreipti į Telegram
   </div>
 </footer>
 
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const msg =
       `Užsakymas ${generateOrderId()}\n***\n` +
       selected.join('\n') +
-      '\n***';
+      '\n***\nNepamirškite išsiųsti šią žinutę';
 
     window.location.href =
       'https://t.me/+37062804118?text=' + encodeURIComponent(msg);
