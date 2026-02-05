@@ -183,7 +183,7 @@
   </div>
 
   <div class="footer-note">
-    Užsakydami būsite nukreipti į Telegram
+    Užsakymo patvirtinimui būsite nukreipti į Telegram
   </div>
 </footer>
 
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const msg =
       `Užsakymas ${generateOrderId()}\n***\n` +
       selected.join('\n') +
-      '\n***\nNepamirškite išsiųsti šią žinutę';
+      '\n***';
 
     window.location.href =
       'https://t.me/+37062804118?text=' + encodeURIComponent(msg);
