@@ -164,3 +164,124 @@
 
 <header>
   <a href="https://pasjurkus.lt/">
+    <img src="https://pasjurkus.lt/img/logo-brown.png" alt="Jurkų Šeimos Ūkis">
+  </a>
+  <h1>Jurkų Šeimos Ūkis</h1>
+  <h2>Jautienos užsakymas</h2>
+</header>
+
+<main>
+  <div id="products">
+    <div class="loader" id="loader"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-actions">
+    <a class="orderBtn" style="display:none" href="tel:+37062804118">
+      <i class="fa-solid fa-phone"></i>
+      <span>Teirautis</span>
+    </a>
+    <button class="orderBtn" id="whatsappOrder">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>Užsakyti</span>
+    </button>
+  </div>
+
+  <div class="footer-note">
+    Užsakymą pateiksite išsiuntę žinutę per WhatsApp <i class="fa-brands fa-whatsapp"></i>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const container = document.getElementById('products');
+  const loader = document.getElementById('loader');
+
+  let products = [];
+
+  try {
+    const response = await fetch(
+      'https://script.google.com/macros/s/AKfycbwWDqiaUB1EeIBQ0wdvbLo0HpGDgPefcnMu5ehukmY3zFwQfmdfyW6dv1y5_kXb774Q3A/exec'
+    );
+    products = await response.json();
+  } catch (e) {
+    loader.innerHTML = "Nepavyko užkrauti duomenų.";
+    return;
+  }
+
+  const beefSection = document.createElement('div');
+  const dairySection = document.createElement('div');
+
+  beefSection.innerHTML = `<h3>Jautienos gaminiai</h3>`;
+  dairySection.innerHTML = `<h3>Pieno produktai</h3>`;
+
+  products.forEach(p => {
+    const balance = Math.max(0, Number(p.Balance) || 0);
+
+    const row = document.createElement('div');
+    row.className = 'product';
+    row.innerHTML = `
+      <div class="product-info">
+        <div>${p.Name}</div>
+        <small>${p.Description || ''}</small>
+      </div>
+      <select id="sku-${p.SKU}">
+        ${Array.from({ length: balance + 1 }, (_, i) =>
+          `<option value="${i}">${i}</option>`
+        ).join('')}
+      </select>
+    `;
+
+    if (p.SKU.startsWith('J')) beefSection.appendChild(row);
+    if (p.SKU.startsWith('P')) dairySection.appendChild(row);
+  });
+
+  loader.remove();
+  container.appendChild(beefSection);
+  container.appendChild(dairySection);
+
+  document.getElementById('whatsappOrder').addEventListener('click', () => {
+    const selected = products
+      .map(p => {
+        const el = document.getElementById(`sku-${p.SKU}`);
+        const v = el ? Number(el.value) : 0;
+        return v > 0 ? { sku: p.SKU, text: `${p.Name}: ${v}` } : null;
+      })
+      .filter(Boolean);
+
+    if (!selected.length) {
+      alert('Pasirinkite bent vieną produktą.');
+      return;
+    }
+
+    const beef = selected.filter(i => i.sku.startsWith('J')).map(i => i.text).join('\n');
+    const dairy = selected.filter(i => i.sku.startsWith('P')).map(i => i.text).join('\n');
+
+    let msg = `Užsakymas ${generateOrderId()}\n`;
+
+    if (beef) msg += `Jautienos gaminiai:\n${beef}\n`;
+    msg += `***\n`;
+    if (dairy) msg += `Pieno produktai:\n${dairy}\n`;
+    msg += `***`;
+
+    window.location.href =
+      'https://wa.me/37062804118?text=' + encodeURIComponent(msg);
+  });
+});
+
+function generateOrderId() {
+  const d = new Date();
+  return (
+    '#' +
+    (d.getFullYear() % 100).toString(36).toUpperCase() +
+    (d.getMonth() + 1).toString(36).toUpperCase() +
+    d.getDate().toString(36).toUpperCase() +
+    d.getHours().toString().padStart(2, '0') +
+    d.getMinutes().toString().padStart(2, '0')
+  );
+}
+</script>
+
+</body>
+</html>
