@@ -167,7 +167,7 @@
     <img src="https://pasjurkus.lt/img/logo-brown.png" alt="Jurkų Šeimos Ūkis">
   </a>
   <h1>Jurkų Šeimos Ūkis</h1>
-  <h2>Jautienos užsakymas</h2>
+  <h2>Produkcijos užsakymas</h2>
 </header>
 
 <main>
@@ -260,9 +260,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let msg = `Užsakymas ${generateOrderId()}\n`;
 
-    if (beef) msg += `Jautienos gaminiai:\n${beef}\n`;
+    if (beef) msg += `${beef}\n`;
     msg += `***\n`;
-    if (dairy) msg += `Pieno produktai:\n${dairy}\n`;
+    if (dairy) msg += `${dairy}\n`;
     msg += `***`;
 
     window.location.href =
