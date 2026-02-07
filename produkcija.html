@@ -2,7 +2,7 @@
 <html lang="lt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jautienos užsakymas | Pas Jurkus prie Jūros 🏞</title>
 
   <meta name="description" content="Užsisakykite šviežią jautieną tiesiai iš mūsų ūkio. Natūraliai auginta, vietinė ir paruošta su rūpesčiu.">
@@ -40,6 +40,10 @@
       font-family: Inter, sans-serif;
       background: var(--bg);
       color: var(--dark);
+    }
+
+    body {
+      padding-bottom: env(safe-area-inset-bottom);
     }
 
     header {
@@ -126,8 +130,8 @@
 
     .footer-note {
       font-size: 0.85rem;
-      background: var(--dark);
-      color: var(--deep);
+      background: var(--deep);
+      color: var(--dark);
       padding: 0.4rem;
     }
 
