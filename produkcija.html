@@ -101,6 +101,7 @@
       border-radius: 8px;
       border: 1px solid #999;
       background-color: white;
+      font-size: 16px;
     }
 
     footer {
@@ -141,6 +142,10 @@
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    .subtitle {
+      font-size: large;
+    }
     
   </style>
 </head>
@@ -152,7 +157,7 @@
     <img src="https://pasjurkus.lt/img/logo-brown.png" alt="Jurkų Šeimos Ūkis">
   </a>
   <h1>Jurkų Šeimos Ūkis</h1>
-  <h2>Produkcijos užsakymas</h2>
+  <p class="subtitle">Produkcijos užsakymas</p>
 </header>
 
 <main>
@@ -200,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div>${p.Name}</div>
         <small>${p.Description || ''}</small>
       </div>
-      <select id="sku-${p.SKU}">
+      <select data-sku="${p.SKU}">
         ${Array.from({ length: balance + 1 }, (_, i) =>
           `<option value="${i}">${i}</option>`
         ).join('')}
@@ -218,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('btnOrder').addEventListener('click', () => {
     const selected = products
       .map(p => {
-        const el = document.getElementById(`sku-${p.SKU}`);
+        const el = document.querySelector(`[data-sku="${p.SKU}"]`);
         const v = el ? Number(el.value) : 0;
         return v > 0 ? { sku: p.SKU, text: `${p.Name}: ${v}` } : null;
       })
