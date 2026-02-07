@@ -107,39 +107,12 @@
     }
 
     footer {
-      background: var(--dark);
+      background: none;
       text-align: center;
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-
-    .orderBtn {
-      width: 100%;
-      padding: 0.7rem;
-      color: var(--deep);
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .orderBtn i {
-      font-size: 45px;
-      display: block;
-    }
-
-    .orderBtn span {
-      font-size: 13px;
-    }
-
-    .footer-note {
-      font-size: 0.85rem;
-      background: var(--deep);
-      color: var(--dark);
-      padding: 0.4rem;
     }
 
     .loader {
@@ -152,20 +125,17 @@
       margin: 2rem auto;
     }
 
-    .footer-actions {
-      display: flex;
-    }
 
-    .footer-actions .orderBtn {
-      flex: 1;
+    footer button {
       color: var(--deep);
-      background: none;
+      background-color: var(--dark);
       border: none;
       cursor: pointer;
       text-decoration: none;
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
+    
   </style>
 </head>
 
@@ -186,15 +156,9 @@
 </main>
 
 <footer>
-  <div class="footer-actions">
-    <button class="orderBtn" id="whatsappOrder">
-      <i class="fa-brands fa-square-whatsapp"></i>
-    </button>
-  </div>
-
-  <div class="footer-note">
-    Nepamirškite išsiųsti suformuotos WhatsApp žinutės 
-  </div>
+  <button>
+    Užsakyti
+  </button>
 </footer>
 
 <script>
