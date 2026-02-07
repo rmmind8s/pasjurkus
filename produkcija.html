@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     products = await response.json();
   } catch (e) {
-    loader.innerHTML = "Nepavyko užkrauti duomenų.";
+    loader.textContent = "Nepavyko užkrauti duomenų.";
     return;
   }
 
