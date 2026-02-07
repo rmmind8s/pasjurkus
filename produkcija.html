@@ -132,11 +132,8 @@
       padding: 0.75rem 1rem;
       margin-bottom: 1rem;
       font-size: medium;
-    }
-
-    footer button:hover, footer button:active {
-      color: var(--dark);
-      background-color: var(--deep);
+      font-weight: 600;
+      border-radius: 6px;
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -161,7 +158,7 @@
 </main>
 
 <footer>
-  <button>
+  <button id="btnOrder">
     Užsakyti
   </button>
 </footer>
@@ -214,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   container.appendChild(beefSection);
   container.appendChild(dairySection);
 
-  document.getElementById('whatsappOrder').addEventListener('click', () => {
+  document.getElementById('btnOrder').addEventListener('click', () => {
     const selected = products
       .map(p => {
         const el = document.getElementById(`sku-${p.SKU}`);
