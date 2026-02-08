@@ -313,9 +313,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
-    const beef = selected.filter(i => i.sku.startsWith('J')).map(i => i.text).join('\n');
-    const cheese = selected.filter(i => i.sku.startsWith('S')).map(i => i.text).join('\n');
-    const other = selected.filter(i => i.sku.startsWith('O')).map(i => i.text).join('\n');
+    const beef = selected
+      .filter(i => i.sku.startsWith('J'))
+      .map(i => `* ${i.text}`)
+      .join('\n');
+    const cheese = selected
+      .filter(i => i.sku.startsWith('S'))
+      .map(i => `* ${i.text}`)
+      .join('\n');
+
+    const other = selected
+      .filter(i => i.sku.startsWith('O'))
+      .map(i => `* ${i.text}`)
+      .join('\n');
 
     let msg = `Užsakymas ${generateOrderId()}\n`;
 
