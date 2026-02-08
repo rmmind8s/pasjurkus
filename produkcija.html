@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const beefSection = document.createElement('div');
   const cheeseSection = document.createElement('div');
-  const dairySection = document.createElement('div');
+  const otherSection = document.createElement('div');
 
   beefSection.innerHTML = `<h3>Šviežia jautiena</h3>`;
   cheeseSection.innerHTML = `<h3>Sūriai</h3>`;
-  dairySection.innerHTML = `<h3>Pieno produktai</h3>`;
+  otherSection.innerHTML = `<h3>Kiti produktai</h3>`;
 
   products.forEach(p => {
     const balance = Math.max(0, Number(p.Balance) || 0);
@@ -279,14 +279,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     if (p.SKU.startsWith('J')) beefSection.appendChild(row);
-    if (p.SKU.startsWith('C')) cheeseSection.appendChild(row);
-    if (p.SKU.startsWith('P')) dairySection.appendChild(row);
+    if (p.SKU.startsWith('S')) {
+      cheeseSection.appendChild(row);
+    } else (p.SKU.startsWith('O')) {
+      otherSection.appendChild(row);
+    }
   });
 
   loader.remove();
   container.appendChild(beefSection);
   container.appendChild(cheeseSection);
-  container.appendChild(dairySection);
+  container.appendChild(otherSection);
 
   document.getElementById('btnOrder').addEventListener('click', () => {
     const selected = products
@@ -304,13 +307,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const beef = selected.filter(i => i.sku.startsWith('J')).map(i => i.text).join('\n');
     const cheese = selected.filter(i => i.sku.startsWith('S')).map(i => i.text).join('\n');
-    const dairy = selected.filter(i => i.sku.startsWith('P')).map(i => i.text).join('\n');
+    const other = selected.filter(i => i.sku.startsWith('O')).map(i => i.text).join('\n');
 
     let msg = `Užsakymas ${generateOrderId()}\n`;
 
     if (beef) msg += `*** Jautiena ***\n${beef}\n`;
     if (cheese) msg += `*** Sūriai ***\n${beef}\n`;
-    if (dairy) msg += `*** Kiti produktai ***\n${dairy}\n`;
+    if (other) msg += `*** Kiti produktai ***\n${other}\n`;
     msg += `***`;
 
     window.location.href =
