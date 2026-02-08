@@ -103,6 +103,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
+      width: 65%;
     }
 
     .product-info small {
@@ -125,7 +126,7 @@
     }
 
     .product-price-qty {
-      width: 100%;
+      width: 35%;
       text-align: right;
     }
     
@@ -257,11 +258,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="product-text">
           <div class="product-name">${p.Name}</div>
           ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
-          ${p.Use ? `<small class="product-use">Naudojimas: ${p.Use}</small>` : ''}
+          ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
         </div>
       </div>
 
-      <div class="price-qty">
+      <div class="product-price-qty">
       ${p.Price ? `<span class="product-price">${p.Price} EUR/kg</span>` : ''}
     
       <select data-sku="${p.SKU}">
