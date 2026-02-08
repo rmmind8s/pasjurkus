@@ -278,12 +278,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-    if (p.SKU.startsWith('J')) beefSection.appendChild(row);
-    if (p.SKU.startsWith('S')) {
+    if (p.SKU.startsWith('J')) {
+      beefSection.appendChild(row);
+    } else if (p.SKU.startsWith('S')) {
       cheeseSection.appendChild(row);
-    } else (p.SKU.startsWith('O')) {
+    } else if (p.SKU.startsWith('O')) {
       otherSection.appendChild(row);
     }
+    
   });
 
   loader.remove();
@@ -312,7 +314,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let msg = `Užsakymas ${generateOrderId()}\n`;
 
     if (beef) msg += `*** Jautiena ***\n${beef}\n`;
-    if (cheese) msg += `*** Sūriai ***\n${beef}\n`;
+    if (cheese) msg += `*** Sūriai ***\n${cheese}\n`;
     if (other) msg += `*** Kiti produktai ***\n${other}\n`;
     msg += `***`;
 
