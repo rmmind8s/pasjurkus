@@ -98,8 +98,9 @@
     }
 
     .product-info {
-      flex: 1;
-      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
     .product-info small {
@@ -123,8 +124,11 @@
     
     .product-price {
       margin-top: 0.25rem;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark);
     }
+
 
     select {
       width: 64px;
@@ -239,24 +243,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const row = document.createElement('div');
     row.className = 'product';
-    
+        
     row.innerHTML = `
       <div class="product-info">
-        <div class="product-name">${p.Name}</div>
+        <div class="product-text">
+          <div class="product-name">${p.Name}</div>
     
-        ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
+          ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
     
-        ${p.Use ? `<small class="product-use">Naudojimas: ${p.Use}</small>` : ''}
+          ${p.Use ? `<small class="product-use">Naudojimas: ${p.Use}</small>` : ''}
+        </div>
     
         ${p.Price ? `<div class="product-price">${p.Price} EUR/kg</div>` : ''}
       </div>
+    
+      <select data-sku="${p.SKU}">
+        ${Array.from({ length: balance + 1 }, (_, i) =>
+          `<option value="${i}">${i}</option>`
+        ).join('')}
+      </select>
+    `;
 
-  <select data-sku="${p.SKU}">
-    ${Array.from({ length: balance + 1 }, (_, i) =>
-      `<option value="${i}">${i}</option>`
-    ).join('')}
-  </select>
-`;
 
 
     if (p.SKU.startsWith('J')) beefSection.appendChild(row);
