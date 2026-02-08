@@ -123,12 +123,18 @@
     .product-use {
       font-style: italic;
     }
+
+    .product-price-qty {
+      width: 100%;
+      text-align: right;
+    }
     
     .product-price {
       margin-top: 0.25rem;
-      font-weight: 700;
+      font-weight: 500;
       font-size: 1.05rem;
       color: var(--dark);
+      margin-right: 1rem;
     }
 
 
@@ -254,14 +260,16 @@ document.addEventListener('DOMContentLoaded', async () => {
           ${p.Use ? `<small class="product-use">Naudojimas: ${p.Use}</small>` : ''}
         </div>
       </div>
-    
-      ${p.Price ? `<div class="product-price">${p.Price} EUR/kg</div>` : ''}
+
+      <div class="price-qty">
+      ${p.Price ? `<span class="product-price">${p.Price} EUR/kg</span>` : ''}
     
       <select data-sku="${p.SKU}">
         ${Array.from({ length: balance + 1 }, (_, i) =>
           `<option value="${i}">${i}</option>`
         ).join('')}
       </select>
+      </div>
     `;
 
 
