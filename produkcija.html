@@ -91,11 +91,13 @@
 
     .product {
       display: flex;
-      justify-content: space-between;
+      align-items: center; /* suderina viską vertikaliai */
       gap: 1rem;
       padding: 0.75rem 0;
       border-bottom: 1px solid #e5e5e5;
     }
+
+    
 
     .product-info {
       display: flex;
@@ -248,14 +250,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       <div class="product-info">
         <div class="product-text">
           <div class="product-name">${p.Name}</div>
-    
           ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
-    
           ${p.Use ? `<small class="product-use">Naudojimas: ${p.Use}</small>` : ''}
         </div>
-    
-        ${p.Price ? `<div class="product-price">${p.Price} EUR/kg</div>` : ''}
       </div>
+    
+      ${p.Price ? `<div class="product-price">${p.Price} EUR/kg</div>` : ''}
     
       <select data-sku="${p.SKU}">
         ${Array.from({ length: balance + 1 }, (_, i) =>
@@ -263,6 +263,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         ).join('')}
       </select>
     `;
+
 
 
 
