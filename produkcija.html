@@ -97,8 +97,6 @@
       border-bottom: 1px solid #e5e5e5;
     }
 
-    
-
     .product-info {
       display: flex;
       flex-direction: column;
@@ -225,6 +223,13 @@
 </footer>
 
 <script>
+
+function checkSection(section) {
+  if (!section.querySelector('.product')) {
+    section.innerHTML += `<p style="color: var(--muted); font-style: italic;">Šiuo metu neturime.</p>`;
+  }
+}
+  
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('products');
   const loader = document.getElementById('loader');
@@ -275,9 +280,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
     `;
 
-
-
-
     if (p.SKU.startsWith('J')) {
       beefSection.appendChild(row);
     } else if (p.SKU.startsWith('S')) {
@@ -292,6 +294,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   container.appendChild(beefSection);
   container.appendChild(cheeseSection);
   container.appendChild(otherSection);
+
+  checkSection(beefSection);
+  checkSection(cheeseSection);
+  checkSection(otherSection);
 
   document.getElementById('btnOrder').addEventListener('click', () => {
     const selected = products
