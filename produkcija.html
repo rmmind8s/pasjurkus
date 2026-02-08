@@ -103,7 +103,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
-      width: 55%;
+      width: 50%;
     }
 
     .product-info small {
@@ -126,7 +126,7 @@
     }
 
     .product-price-qty {
-      width: 45%;
+      width: 50%;
       text-align: right;
     }
     
@@ -242,9 +242,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const beefSection = document.createElement('div');
+  const cheeseSection = document.createElement('div');
   const dairySection = document.createElement('div');
 
   beefSection.innerHTML = `<h3>Šviežia jautiena</h3>`;
+  cheeseSection.innerHTML = `<h3>Sūriai</h3>`;
   dairySection.innerHTML = `<h3>Pieno produktai</h3>`;
 
   products.forEach(p => {
@@ -277,11 +279,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     if (p.SKU.startsWith('J')) beefSection.appendChild(row);
-    if (p.SKU.startsWith('P')) dairySection.appendChild(row);
+    if (p.SKU.startsWith('PS'))
+      cheeseSection.appendChild(row);
+    else if (p.SKU.startsWith('P')) 
+      dairySection.appendChild(row);
   });
 
   loader.remove();
   container.appendChild(beefSection);
+  container.appendChild(cheeseSection);
   container.appendChild(dairySection);
 
   document.getElementById('btnOrder').addEventListener('click', () => {
