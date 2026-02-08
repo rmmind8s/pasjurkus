@@ -279,10 +279,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     if (p.SKU.startsWith('J')) beefSection.appendChild(row);
-    if (p.SKU.startsWith('PS'))
-      cheeseSection.appendChild(row);
-    else if (p.SKU.startsWith('P')) 
-      dairySection.appendChild(row);
+    if (p.SKU.startsWith('C')) cheeseSection.appendChild(row);
+    if (p.SKU.startsWith('P')) dairySection.appendChild(row);
   });
 
   loader.remove();
@@ -305,13 +303,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const beef = selected.filter(i => i.sku.startsWith('J')).map(i => i.text).join('\n');
+    const cheese = selected.filter(i => i.sku.startsWith('S')).map(i => i.text).join('\n');
     const dairy = selected.filter(i => i.sku.startsWith('P')).map(i => i.text).join('\n');
 
     let msg = `Užsakymas ${generateOrderId()}\n`;
 
-    if (beef) msg += `***\n${beef}\n`;
-    msg += `***\n`;
-    if (dairy) msg += `${dairy}\n`;
+    if (beef) msg += `*** Jautiena ***\n${beef}\n`;
+    if (cheese) msg += `*** Sūriai ***\n${beef}\n`;
+    if (dairy) msg += `*** Kiti produktai ***\n${dairy}\n`;
     msg += `***`;
 
     window.location.href =
