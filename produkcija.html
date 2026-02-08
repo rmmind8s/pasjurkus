@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
 
       <div class="product-price-qty">
-      ${p.Price ? `<span class="product-price">${p.Price} EUR/kg</span>` : ''}
+      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
     
       <select data-sku="${p.SKU}">
         ${Array.from({ length: balance + 1 }, (_, i) =>
