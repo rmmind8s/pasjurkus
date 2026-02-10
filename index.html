@@ -101,27 +101,30 @@
 
     nav {
       max-width: 77vw;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
-      text-decoration: none;
-      color: var(--light);
-      font-weight: bold;
-      transition: background-color 300ms linear;
-      background-color: rgba(3, 3, 3, 0.45);
-      margin: 0.5em 0.1em 0em 0.1em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 14px 25px;
+      white-space: nowrap;
     }
 
     nav a:link, nav a:visited {
       color: var(--deep);
       padding: 14px 25px;
       text-align: center;
-      display: inline-block;
     }
 
-    nav a:hover, nav a:active, .orderBtn {
+    nav a:hover,
+    nav a:active {
       background-color: var(--deep);
-      color: var(--black)!important;
+      color: var(--black);
       text-decoration: none;
     }
 
@@ -240,18 +243,11 @@
       width: 22px;
       opacity: 0.5;
     }
-
-    .orderBtn {
-      display: inline-flex;
-      align-items: center;   /* vertikalus centravimas */
-      gap: 0.4rem;           /* tarpas tarp teksto ir svg */
-      white-space: nowrap;  /* neleidžia laužyti eilutės */
-    }
     
     .orderBtn svg {
       width: 1.5rem;
       height: 1.5rem;
-      flex-shrink: 0;        /* svg niekada nesusitrauks */
+      flex-shrink: 0;
     }
 
   </style>
