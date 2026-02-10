@@ -7,7 +7,6 @@
 
   <meta name="description" content="Jurkų Šeimos ūkis įkurtas 1991 m. Rietavo savivaldybėje, gamina žalią pieną, fermentinius sūrius, šviežią jautieną ir jautienos gaminius. Organizuojamos edukacijos, ekskursijos ir pažintys su ūkio gyvenimu.">
 
-
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://pasjurkus.lt">
   <meta property="og:type" content="website">
@@ -91,7 +90,6 @@
     header h1, header nav {
       z-index: 1;
       position: relative;
-      margin: 0;
     }
 
     header h1 {
@@ -103,8 +101,9 @@
       max-width: 77vw;
       display: flex;
       align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 0.35rem;
+      margin-top: 0.3rem;
     }
 
     nav a {
@@ -211,7 +210,12 @@
       box-sizing: border-box;
     }
 
-    /* Tik staliniams įrenginiams – rodome šalia */
+    @media (max-width: 767px) {
+      nav {
+        justify-content: flex-start;
+      }
+    }
+    
     @media (min-width: 768px) {
       .content-sections {
         flex-direction: row;
@@ -236,7 +240,7 @@
       z-index: 99;
       border: none;
       outline: none;
-      background-color: rgba(252, 176, 22,0.5);
+      background-color: rgba(252, 176, 22, 0.5);
       color: var(--dark );
       cursor: pointer;
       padding: 15px;
