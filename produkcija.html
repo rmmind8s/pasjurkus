@@ -236,14 +236,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loader = document.getElementById('loader');
 
   let products = [];
-
+  
   try {
-    const response = await fetch(
-      'https://script.google.com/macros/s/AKfycbwWDqiaUB1EeIBQ0wdvbLo0HpGDgPefcnMu5ehukmY3zFwQfmdfyW6dv1y5_kXb774Q3A/exec'
-    );
+    // Pakeičiame nuorodą į vietinio failo pavadinimą
+    const response = await fetch('produkcija.json');
+    
+    if (!response.ok) {
+      throw new Error("Failas nerastas");
+    }
+  
     products = await response.json();
   } catch (e) {
-    loader.textContent = "Nepavyko užkrauti duomenų.";
+    loader.textContent = "Nepavyko užkrauti duomenų iš failo.";
+    console.error(e);
     return;
   }
 
