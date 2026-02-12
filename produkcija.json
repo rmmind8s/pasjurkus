@@ -186,7 +186,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 1
+    "Balance": 10
   },
   {
     "SKU": "SCK",
@@ -195,7 +195,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 1
+    "Balance": 10
   },
   {
     "SKU": "SAR",
@@ -204,7 +204,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 2
+    "Balance": 12
   },
   {
     "SKU": "OV1",
