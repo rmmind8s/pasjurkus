@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   try {
     // Pakeičiame nuorodą į vietinio failo pavadinimą
-    const response = await fetch('produkcija.json');
+    const response = await fetch(`produkcija.json?v=${new Date().getTime()}`);
     
     if (!response.ok) {
       throw new Error("Failas nerastas");
