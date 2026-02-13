@@ -9,24 +9,6 @@
     "Balance": 3
   },
   {
-    "SKU": "JPJ",
-    "Name": "Išpjova",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 30,
-    "Unit": "kg",
-    "Balance": 1
-  },
-  {
-    "SKU": "JKM",
-    "Name": "Kumpinė",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 12,
-    "Unit": "kg",
-    "Balance": 3
-  },
-  {
     "SKU": "JSN",
     "Name": "Šonkauliukai",
     "Description": "Pakuotė apie 0.9 kg",
