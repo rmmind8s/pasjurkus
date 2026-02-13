@@ -269,8 +269,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         
     row.innerHTML = `
       <div class="product-info">
-        <div class="product-text">
-          <div class="product-name">${p.Name}</div>
+        <div class="product-name">${p.Name}</div>
+          <small class="product-balance">Likutis: ${balance}</small>
           ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
           ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
         </div>
