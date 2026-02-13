@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     row.innerHTML = `
       <div class="product-info">
         <div class="product-name">${p.Name}</div>
-          <small class="product-balance">Likutis: ${balance}</small>
+          <small class="product-balance">Likutis: <strong>${balance}</strong></small>
           ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
           ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
         </div>
