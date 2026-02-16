@@ -71,6 +71,20 @@ main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 
   width: 50%;
 }
 
+/* Viršutinė eilutė pavadinimas + kaina */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Kaina gali būti šiek tiek mažesnė */
+.product-price {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
 .product-info small { color: var(--muted); }
 .product-name { font-weight: 600; }
 .product-desc,
@@ -86,11 +100,6 @@ main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 
 
 .product-price-qty .qty-container {
   margin-bottom: 0.5rem; /* tarpas tarp input ir kainos */
-}
-
-.product-price { 
-  color: var(--dark); 
-  font-size: 0.9rem;
 }
 
 .product-balance {
@@ -241,22 +250,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     row.innerHTML = `
       <div class="product-info">
-        <div class="product-name">${p.Name}</div>
-        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
+        <div class="product-header">
+          <div class="product-name">${p.Name}</div>
+          ${p.Price ? `<div class="product-price">${p.Price} EUR/${p.Unit}</div>` : ''}
+        </div>
+    
         ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
         ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
       </div>
-
+    
       <div class="product-price-qty">
         <div class="qty-container" data-sku="${p.SKU}">
           <button type="button" class="decrease">-</button>
           <input type="number" min="0" max="${balance}" value="0" inputmode="numeric" pattern="[0-9]*" />
           <button type="button" class="increase">+</button>
         </div>
-
+    
         <small class="product-balance">Likutis: <strong>${balance}</strong></small>
       </div>
     `;
+
 
     if (p.SKU.startsWith('J')) beefSection.appendChild(row);
     else if (p.SKU.startsWith('S')) cheeseSection.appendChild(row);
