@@ -141,8 +141,8 @@
     }
 
     .product-price {
-      margin-top: auto;
-      margin-bottom: 0;
+      margin-top: 0;
+      margin-bottom: auto;
     }
 
 
@@ -153,7 +153,10 @@
       border: 1px solid #999;
       background-color: white;
       font-size: 16px;
-      margin-bottom: 0.5rem;
+    }
+
+    .product-price-qty select {
+      margin-top: auto;
     }
 
     footer {
@@ -285,14 +288,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
 
       <div class="product-price-qty">
+      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
+    
       <select data-sku="${p.SKU}">
       <option value="0">0</option>
         ${Array.from({ length: balance }, (_, i) =>
           `<option value="${i + 1}">${i + 1}</option>`
         ).join('')}
       </select>
-
-      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
       </div>
     `;
 
