@@ -93,7 +93,7 @@
 
     .product {
       display: flex;
-      align-items: center; /* suderina viską vertikaliai */
+      align-items: stretch;
       gap: 1rem;
       padding: 0.75rem 0;
       border-bottom: 1px solid #e5e5e5;
@@ -127,7 +127,11 @@
 
     .product-price-qty {
       width: 50%;
-      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
     }
     
     .product-price {
@@ -138,6 +142,10 @@
       margin-right: 0.25rem;
     }
 
+    .product-price {
+      margin-top: 0;
+    }
+
 
     select {
       width: 48px;
@@ -146,6 +154,10 @@
       border: 1px solid #999;
       background-color: white;
       font-size: 16px;
+    }
+
+    .product-price-qty select {
+      margin-top: auto;
     }
 
     footer {
