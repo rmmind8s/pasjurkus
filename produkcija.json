@@ -52,5 +52,50 @@
     "Price": 5,
     "Unit": "kg",
     "Balance": 3
+  },
+  {
+    "SKU": "SNT",
+    "Name": "Natūralus",
+    "Description": "320-360 g/vnt",
+    "Use": "",
+    "Price": 5,
+    "Unit": "vnt.",
+    "Balance": 5
+  },
+  {
+    "SKU": "SKM",
+    "Name": "Su kmynais",
+    "Description": "320-360 g/vnt",
+    "Use": "",
+    "Price": 5,
+    "Unit": "vnt.",
+    "Balance": 15
+  },
+  {
+    "SKU": "SAR",
+    "Name": "Su aguonomis ir razinom",
+    "Description": "320-360 g/vnt",
+    "Use": "Desertinis",
+    "Price": 5,
+    "Unit": "vnt.",
+    "Balance": 15
+  },
+  {
+    "SKU": "OV1",
+    "Name": "Varškė 1 kg",
+    "Description": "",
+    "Use": "",
+    "Price": 8,
+    "Unit": "vnt.",
+    "Balance": 4
+  },
+  {
+    "SKU": "OV5",
+    "Name": "Varškė 0.5 kg",
+    "Description": "",
+    "Use": "",
+    "Price": 5,
+    "Unit": "vnt.",
+    "Balance": 4
   }
 ]
