@@ -56,27 +56,37 @@ h1 { font-family: "Tagesschrift", system-ui; margin: 0.2rem 0; }
 h3 { text-align: center; margin-bottom: 0.5rem; font-size: 1.2rem; padding-bottom: 0.3rem; font-family: "Tagesschrift", system-ui; }
 main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 0 auto; }
 
-  .product {
-    display: flex;
-    flex-direction: column; /* vertikali struktūra */
-    gap: 0.5rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e5e5e5;
-  }
-  
-  .product-header-full {
-    display: flex;
-    justify-content: space-between; /* pavadinimas kairėje, kaina dešinėje */
-    align-items: center;
-    width: 100%;
-    font-weight: 600;
-  }
-  
-  .product-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+ /* visam product blokui vertical layout */
+.product {
+  display: flex;
+  flex-direction: column; /* viršutinė eilutė viršuje, info + qty apačioje */
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* viršutinė eilutė: pavadinimas + kaina */
+.product-header-full {
+  display: flex;
+  justify-content: space-between; /* pavadinimas kairėje, kaina dešinėje */
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+}
+
+/* apatinė dalis */
+.product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* qty-container ir likutis turėtų likti kairėje */
+.product-body .qty-container,
+.product-body .product-balance {
+  align-self: flex-start; /* kairėn */
+}
+
 
 .product-info {
   display: flex;
