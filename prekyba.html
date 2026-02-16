@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Šviežios ūkio produkcijos užsakymas – jautiena ir pieno produktai</title>
+
+<link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+<link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="./img/favicon/site.webmanifest" />
+
+<meta property="og:url" content="https://pasjurkus.lt/prekyba.html">
+<meta property="og:site_name" content="Pas Jurkus prie Jūros 🏞">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Šviežios ūkio produkcijos užsakymas &#129385; &#129472;">
+<meta property="og:description" content="Užsisakykite šviežią jautieną ir pieno produktus tiesiai iš Jurkų šeimos ūkio. Natūrali, vietinė produkcija.">
+<meta property="og:image" content="https://pasjurkus.lt/img/og-image.png">
+  
 <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/11da5eb453.js" crossorigin="anonymous"></script>
 
@@ -92,6 +106,8 @@ main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 
   font-size: 20px;
   cursor: pointer;
   transition: background 0.2s;
+  color: var(--dark);
+  
 }
 
 .qty-container button:hover { background-color: #f0f0f0; }
@@ -221,12 +237,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
 
       <div class="product-price-qty">
-        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
         <div class="qty-container" data-sku="${p.SKU}">
           <button type="button" class="decrease">-</button>
           <input type="number" min="0" max="${balance}" value="0" />
           <button type="button" class="increase">+</button>
         </div>
+
+        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
       </div>
     `;
 
