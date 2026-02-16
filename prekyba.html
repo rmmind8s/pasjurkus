@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <div class="product-price-qty">
         <div class="qty-container" data-sku="${p.SKU}">
           <button type="button" class="decrease">-</button>
-          <input type="number" min="0" max="${balance}" value="0" />
+          <input type="number" min="0" max="${balance}" value="0" inputmode="numeric" pattern="[0-9]*" />
           <button type="button" class="increase">+</button>
         </div>
 
