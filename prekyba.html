@@ -32,7 +32,6 @@
   <script src="https://kit.fontawesome.com/11da5eb453.js" crossorigin="anonymous"></script>
 
   <style>
-    
     :root {
       --dark: #3f2c07;
       --deep: #fcb016;
@@ -41,9 +40,7 @@
       --muted: #666;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -70,10 +67,7 @@
       margin: 0.2rem 0;
     }
 
-    h2 {
-      font-size: larger;
-      font-weight: normal;
-    }
+    h2 { font-size: larger; font-weight: normal; }
 
     h3 {
       text-align: center;
@@ -106,24 +100,14 @@
       width: 50%;
     }
 
-    .product-info small {
-      color: var(--muted);
-    }
+    .product-info small { color: var(--muted); }
 
-    .product-name {
-      font-weight: 600;
-    }
-    
+    .product-name { font-weight: 600; }
+
     .product-desc,
-    .product-use {
-      display: block;
-      color: var(--muted);
-      line-height: 1.3;
-    }
-    
-    .product-use {
-      font-style: italic;
-    }
+    .product-use { display: block; color: var(--muted); line-height: 1.3; }
+
+    .product-use { font-style: italic; }
 
     .product-price-qty {
       width: 50%;
@@ -131,27 +115,42 @@
       flex-direction: column;
       align-items: flex-end;
     }
-    
+
     .product-price {
-      margin-top: 0.25rem;
+      margin-top: 0;
       color: var(--dark);
       margin-right: 0.25rem;
-      margin-top: 0;
       margin-bottom: 0.2rem;
     }
 
+    /* Naujas įvedimo laukui su + / - */
+    .qty-container {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
 
-    select {
+    .qty-container input[type="number"] {
       width: 48px;
+      text-align: center;
       padding: 0.3rem;
       border-radius: 8px;
       border: 1px solid #999;
-      background-color: white;
       font-size: 16px;
     }
 
-    .product-price-qty select {
-      margin-top: auto;
+    .qty-container button {
+      padding: 0.25rem 0.5rem;
+      font-size: 16px;
+      font-weight: bold;
+      border: 1px solid #999;
+      background-color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .qty-container button:active {
+      background-color: var(--light);
     }
 
     footer {
@@ -173,7 +172,6 @@
       animation: spin 0.9s linear infinite;
       margin: 2rem auto;
     }
-
 
     footer button {
       color: var(--lighter);
@@ -201,15 +199,11 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .subtitle {
-      font-size: large;
-    }
-
+    .subtitle { font-size: large; }
   </style>
 </head>
 
 <body>
-
 <header>
   <a href="https://pasjurkus.lt/">
     <img src="https://pasjurkus.lt/img/logo-brown.png" alt="Jurkų Šeimos Ūkis">
@@ -231,27 +225,21 @@
 </footer>
 
 <script>
-
 function checkSection(section) {
   if (!section.querySelector('.product')) {
     section.innerHTML += `<p style="color: var(--muted); font-style: italic;">Šiuo metu neturime.</p>`;
   }
 }
-  
+
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('products');
   const loader = document.getElementById('loader');
 
   let products = [];
-  
+
   try {
-    // Pakeičiame nuorodą į vietinio failo pavadinimą
     const response = await fetch(`produkcija.json?v=${new Date().getTime()}`);
-    
-    if (!response.ok) {
-      throw new Error("Failas nerastas");
-    }
-  
+    if (!response.ok) throw new Error("Failas nerastas");
     products = await response.json();
   } catch (e) {
     loader.textContent = "Nepavyko užkrauti duomenų iš failo.";
@@ -272,36 +260,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const row = document.createElement('div');
     row.className = 'product';
-        
+
     row.innerHTML = `
       <div class="product-info">
         <div class="product-name">${p.Name}</div>
-          <small class="product-balance">Likutis: <strong>${balance}</strong></small>
-          ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
-          ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
-        </div>
+        <small class="product-balance">Likutis: <strong>${balance}</strong></small>
+        ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
+        ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
       </div>
 
       <div class="product-price-qty">
-      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
-    
-      <select data-sku="${p.SKU}">
-      <option value="0">0</option>
-        ${Array.from({ length: balance }, (_, i) =>
-          `<option value="${i + 1}">${i + 1}</option>`
-        ).join('')}
-      </select>
+        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
+        <div class="qty-container" data-sku="${p.SKU}">
+          <button type="button" class="decrease">-</button>
+          <input type="number" min="0" max="${balance}" value="0" />
+          <button type="button" class="increase">+</button>
+        </div>
       </div>
     `;
 
-    if (p.SKU.startsWith('J')) {
-      beefSection.appendChild(row);
-    } else if (p.SKU.startsWith('S')) {
-      cheeseSection.appendChild(row);
-    } else if (p.SKU.startsWith('O')) {
-      otherSection.appendChild(row);
-    }
-    
+    if (p.SKU.startsWith('J')) beefSection.appendChild(row);
+    else if (p.SKU.startsWith('S')) cheeseSection.appendChild(row);
+    else if (p.SKU.startsWith('O')) otherSection.appendChild(row);
   });
 
   loader.remove();
@@ -313,43 +293,47 @@ document.addEventListener('DOMContentLoaded', async () => {
   checkSection(cheeseSection);
   checkSection(otherSection);
 
+  // + / - mygtukų logika
+  document.querySelectorAll('.qty-container').forEach(container => {
+    const input = container.querySelector('input');
+    const max = Number(input.max);
+
+    container.querySelector('.increase').addEventListener('click', () => {
+      let val = Number(input.value);
+      if (val < max) input.value = val + 1;
+    });
+
+    container.querySelector('.decrease').addEventListener('click', () => {
+      let val = Number(input.value);
+      if (val > 0) input.value = val - 1;
+    });
+  });
+
+  // Užsakymo mygtukas
   document.getElementById('btnOrder').addEventListener('click', () => {
-    const selected = products
-      .map(p => {
-        const el = document.querySelector(`[data-sku="${p.SKU}"]`);
-        const v = el ? Number(el.value) : 0;
-        return v > 0 ? { sku: p.SKU, text: `${p.Name}: ${v}` } : null;
-      })
-      .filter(Boolean);
+    const selected = products.map(p => {
+      const container = document.querySelector(`.qty-container[data-sku="${p.SKU}"]`);
+      const input = container ? container.querySelector('input') : null;
+      const v = input ? Number(input.value) : 0;
+      return v > 0 ? { sku: p.SKU, text: `${p.Name}: ${v}` } : null;
+    }).filter(Boolean);
 
     if (!selected.length) {
       alert('Pasirinkite bent vieną produktą.');
       return;
     }
 
-    const beef = selected
-      .filter(i => i.sku.startsWith('J'))
-      .map(i => `* ${i.text}`)
-      .join('\n');
-    const cheese = selected
-      .filter(i => i.sku.startsWith('S'))
-      .map(i => `* ${i.text}`)
-      .join('\n');
-
-    const other = selected
-      .filter(i => i.sku.startsWith('O'))
-      .map(i => `* ${i.text}`)
-      .join('\n');
+    const beef = selected.filter(i => i.sku.startsWith('J')).map(i => `* ${i.text}`).join('\n');
+    const cheese = selected.filter(i => i.sku.startsWith('S')).map(i => `* ${i.text}`).join('\n');
+    const other = selected.filter(i => i.sku.startsWith('O')).map(i => `* ${i.text}`).join('\n');
 
     let msg = `Užsakymas ${generateOrderId()}\n`;
-
     if (beef) msg += `*Jautiena*\n${beef}\n`;
     if (cheese) msg += `*Sūriai*\n${cheese}\n`;
     if (other) msg += `*Kiti produktai*\n${other}\n`;
     msg += `Suprantu, kad užsakomus kiekius dar turės patvirtinti ūkis.`;
 
-    window.location.href =
-      'https://wa.me/37062804118?text=' + encodeURIComponent(msg);
+    window.location.href = 'https://wa.me/37062804118?text=' + encodeURIComponent(msg);
   });
 });
 
@@ -365,6 +349,5 @@ function generateOrderId() {
   );
 }
 </script>
-
 </body>
 </html>
