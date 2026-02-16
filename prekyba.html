@@ -172,6 +172,48 @@ main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 
   margin: 0;
 }
 
+  .product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* viršutinė eilutė: pavadinimas + kaina */
+.product-header-full {
+  display: flex;
+  justify-content: space-between; /* pavadinimas kairėje, kaina dešinėje */
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+}
+
+/* apatinė dalis: info kairėje, qty+likutis dešinėje */
+.product-body {
+  display: flex;
+  justify-content: space-between; /* left info, right qty+balance */
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* aprašymas kairėje */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1; /* užima visą likusį plotį kairėje */
+}
+
+/* kiekio pasirinkimas ir likutis dešinėje */
+.product-price-qty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+  
 footer {
   background: none;
   text-align: center;
@@ -271,26 +313,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const row = document.createElement('div');
     row.className = 'product';
-    
-    row.innerHTML = `
-      <div class="product-header-full">
-        <div class="product-name">${p.Name}</div>
-        ${p.Price ? `<div class="product-price">${p.Price} EUR/${p.Unit}</div>` : ''}
-      </div>
-    
-      <div class="product-body">
+      
+  row.innerHTML = `
+    <div class="product-header-full">
+      <div class="product-name">${p.Name}</div>
+      ${p.Price ? `<div class="product-price">${p.Price} EUR/${p.Unit}</div>` : ''}
+    </div>
+  
+    <div class="product-body">
+      <div class="product-info">
         ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
         ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
-    
+      </div>
+  
+      <div class="product-price-qty">
         <div class="qty-container" data-sku="${p.SKU}">
           <button type="button" class="decrease">-</button>
           <input type="number" min="0" max="${balance}" value="0" inputmode="numeric" pattern="[0-9]*" />
           <button type="button" class="increase">+</button>
         </div>
-    
+  
         <small class="product-balance">Likutis: <strong>${balance}</strong></small>
       </div>
-    `;
+    </div>
+  `;
+
 
 
 
