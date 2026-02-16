@@ -15,7 +15,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 6
+    "Balance": 5
   },
   {
     "SKU": "JBR",
@@ -69,7 +69,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 15
+    "Balance": 14
   },
   {
     "SKU": "SAR",
@@ -78,7 +78,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 15
+    "Balance": 14
   },
   {
     "SKU": "OV1",
@@ -87,7 +87,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 4
+    "Balance": 3
   },
   {
     "SKU": "OV5",
