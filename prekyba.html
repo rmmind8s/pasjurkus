@@ -284,14 +284,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
 
       <div class="product-price-qty">
-      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
-    
       <select data-sku="${p.SKU}">
       <option value="0">0</option>
         ${Array.from({ length: balance }, (_, i) =>
           `<option value="${i + 1}">${i + 1}</option>`
         ).join('')}
       </select>
+
+      ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
       </div>
     `;
 
