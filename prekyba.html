@@ -88,7 +88,16 @@ main { flex: 1; padding: 0rem 1rem 5rem; width: 100%; max-width: 600px; margin: 
   margin-bottom: 0.5rem; /* tarpas tarp input ir kainos */
 }
 
-.product-price { margin-top: 0; color: var(--dark); margin-right: 0.25rem; margin-bottom: 0.2rem; }
+.product-price { 
+  margin-top: 0.2rem;; 
+  color: var(--dark); 
+  margin-bottom: 0.2rem; 
+  font-size: 0.9rem;
+}
+
+.product-balance {
+  .margin-right: 0.25rem;
+}
 
 /* Modernus qty-container */
 .qty-container {
@@ -235,7 +244,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     row.innerHTML = `
       <div class="product-info">
         <div class="product-name">${p.Name}</div>
-        <small class="product-balance">Likutis: <strong>${balance}</strong></small>
+        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
         ${p.Description ? `<small class="product-desc">${p.Description}</small>` : ''}
         ${p.Use ? `<small class="product-use">${p.Use}</small>` : ''}
       </div>
@@ -247,7 +256,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <button type="button" class="increase">+</button>
         </div>
 
-        ${p.Price ? `<span class="product-price">${p.Price} EUR/${p.Unit}</span>` : ''}
+        <small class="product-balance">Likutis: <strong>${balance}</strong></small>
       </div>
     `;
 
