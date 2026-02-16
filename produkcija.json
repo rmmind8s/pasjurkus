@@ -9,31 +9,13 @@
     "Balance": 3
   },
   {
-    "SKU": "JPJ",
-    "Name": "Išpjova",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 30,
-    "Unit": "kg",
-    "Balance": 1
-  },
-  {
-    "SKU": "JKM",
-    "Name": "Kumpinė",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 12,
-    "Unit": "kg",
-    "Balance": 3
-  },
-  {
     "SKU": "JSN",
     "Name": "Šonkauliukai",
     "Description": "Pakuotė apie 0.9 kg",
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 8
+    "Balance": 6
   },
   {
     "SKU": "JBR",
@@ -51,7 +33,7 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
-    "Balance": 14
+    "Balance": 10
   },
   {
     "SKU": "JKC",
@@ -69,15 +51,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "kg",
-    "Balance": 5
-  },
-  {
-    "SKU": "JSR",
-    "Name": "Širdis",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 5,
-    "Unit": "kg",
-    "Balance": 1
+    "Balance": 3
   }
 ]
