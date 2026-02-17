@@ -6,24 +6,6 @@
     "Use": "Steikams",
     "Price": 24,
     "Unit": "kg",
-    "Balance": 4
-  },
-  {
-    "SKU": "JSP",
-    "Name": "Sprandinė",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "Kepsniams arba malti",
-    "Price": 12,
-    "Unit": "kg",
-    "Balance": 2
-  },
-  {
-    "SKU": "JPJ",
-    "Name": "Išpjova",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 30,
-    "Unit": "kg",
     "Balance": 3
   },
   {
