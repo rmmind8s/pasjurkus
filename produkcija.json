@@ -6,16 +6,7 @@
     "Use": "Steikams",
     "Price": 24,
     "Unit": "kg",
-    "Balance": 4
-  },
-  {
-    "SKU": "JF5",
-    "Name": "Faršas 0.5 kg",
-    "Description": "Pakuotė apie 0.5 kg",
-    "Use": "",
-    "Price": 13,
-    "Unit": "kg",
-    "Balance": 2
+    "Balance": 3
   },
   {
     "SKU": "JSN",
@@ -105,6 +96,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 7
+    "Balance": 4
   }
 ]
