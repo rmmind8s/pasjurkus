@@ -6,7 +6,7 @@
     "Use": "Steikams",
     "Price": 24,
     "Unit": "kg",
-    "Balance": 3
+    "Balance": 1
   },
   {
     "SKU": "JSN",
@@ -33,16 +33,7 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
-    "Balance": 9
-  },
-  {
-    "SKU": "JKC",
-    "Name": "Kaulų čiulpai",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 6,
-    "Unit": "kg",
-    "Balance": 1
+    "Balance": 8
   },
   {
     "SKU": "JKP",
@@ -78,7 +69,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 13
+    "Balance": 11
   },
   {
     "SKU": "OV1",
