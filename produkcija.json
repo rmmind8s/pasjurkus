@@ -24,7 +24,7 @@
     "Use": "Lėtam kepimui",
     "Price": 13,
     "Unit": "kg",
-    "Balance": 9
+    "Balance": 8
   },
   {
     "SKU": "JKA",
@@ -33,7 +33,7 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
-    "Balance": 8
+    "Balance": 7
   },
   {
     "SKU": "JKP",
@@ -42,7 +42,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "kg",
-    "Balance": 2
+    "Balance": 1
   },
   {
     "SKU": "SNT",
