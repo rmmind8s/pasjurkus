@@ -33,7 +33,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 25
+    "Balance": 24
   },
   {
     "SKU": "SKM",
@@ -60,7 +60,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 30
+    "Balance": 28
   },
   {
     "SKU": "OV1",
@@ -69,7 +69,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 22
+    "Balance": 21
   },
   {
     "SKU": "OV5",
