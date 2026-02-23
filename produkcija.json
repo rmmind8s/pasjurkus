@@ -6,7 +6,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 4
+    "Balance": 3
   },
   {
     "SKU": "JBR",
@@ -24,7 +24,7 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
-    "Balance": 7
+    "Balance": 6
   },
   {
     "SKU": "SNT",
@@ -42,7 +42,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 32
+    "Balance": 31
   },
   {
     "SKU": "SCK",
@@ -60,7 +60,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 28
+    "Balance": 27
   },
   {
     "SKU": "OV1",
@@ -69,7 +69,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 21
+    "Balance": 19
   },
   {
     "SKU": "OV5",
