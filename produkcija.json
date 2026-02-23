@@ -51,7 +51,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 5
+    "Balance": 25
   },
   {
     "SKU": "SKM",
@@ -60,7 +60,16 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 13
+    "Balance": 33
+  },
+  {
+    "SKU": "SCK",
+    "Name": "Su česnaku ir kmynais",
+    "Description": "320-360 g/vnt",
+    "Use": "",
+    "Price": 5,
+    "Unit": "vnt.",
+    "Balance": 20
   },
   {
     "SKU": "SAR",
@@ -69,7 +78,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 10
+    "Balance": 30
   },
   {
     "SKU": "OV1",
@@ -78,7 +87,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 2
+    "Balance": 22
   },
   {
     "SKU": "OV5",
@@ -87,6 +96,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 4
+    "Balance": 24
   }
 ]
