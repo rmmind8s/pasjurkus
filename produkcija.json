@@ -1,14 +1,5 @@
 [
   {
-    "SKU": "JNG",
-    "Name": "Nugarinė",
-    "Description": "Pakuotė apie 0.5 kg",
-    "Use": "Steikams",
-    "Price": 24,
-    "Unit": "kg",
-    "Balance": 1
-  },
-  {
     "SKU": "JSN",
     "Name": "Šonkauliukai",
     "Description": "Pakuotė apie 0.9 kg",
@@ -34,15 +25,6 @@
     "Price": 2,
     "Unit": "kg",
     "Balance": 7
-  },
-  {
-    "SKU": "JKP",
-    "Name": "Kepenys",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 5,
-    "Unit": "kg",
-    "Balance": 1
   },
   {
     "SKU": "SNT",
