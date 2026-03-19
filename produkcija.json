@@ -15,7 +15,7 @@
     "Use": "",
     "Price": 12,
     "Unit": "kg",
-    "Balance": 40
+    "Balance": 35
   },
   {
     "SKU": "JF5",
@@ -33,7 +33,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 24
+    "Balance": 22
   },
   {
     "SKU": "JBR",
@@ -60,7 +60,7 @@
     "Use": "",
     "Price": 6,
     "Unit": "kg",
-    "Balance": 3
+    "Balance": 2
   },
   {
     "SKU": "JPA",
@@ -87,7 +87,7 @@
     "Use": "",
     "Price": 12,
     "Unit": "kg",
-    "Balance": 4
+    "Balance": 2
   },
   {
     "SKU": "JKP",
