@@ -1,12 +1,39 @@
 [
   {
+    "SKU": "JKM",
+    "Name": "Kumpinė",
+    "Description": "Pakuotė apie 0.8 kg",
+    "Use": "",
+    "Price": 12,
+    "Unit": "kg",
+    "Balance": 15
+  },
+  {
+    "SKU": "JF1",
+    "Name": "Faršas",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 12,
+    "Unit": "kg",
+    "Balance": 45
+  },
+  {
+    "SKU": "JF5",
+    "Name": "Faršas 0.5 kg",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 20
+  },
+  {
     "SKU": "JSN",
     "Name": "Šonkauliukai",
     "Description": "Pakuotė apie 0.9 kg",
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 3
+    "Balance": 24
   },
   {
     "SKU": "JBR",
@@ -15,7 +42,7 @@
     "Use": "Lėtam kepimui",
     "Price": 13,
     "Unit": "kg",
-    "Balance": 8
+    "Balance": 14
   },
   {
     "SKU": "JKA",
@@ -24,7 +51,70 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
+    "Balance": 22
+  },
+  {
+    "SKU": "JKC",
+    "Name": "Kaulų čiulpai",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 6,
+    "Unit": "kg",
+    "Balance": 3
+  },
+  {
+    "SKU": "JPA",
+    "Name": "Flanksteikas",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 16,
+    "Unit": "kg",
+    "Balance": 2
+  },
+  {
+    "SKU": "JRM",
+    "Name": "Rumpsteikas",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 18,
+    "Unit": "kg",
     "Balance": 6
+  },
+  {
+    "SKU": "JGL",
+    "Name": "Guliašinė",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 12,
+    "Unit": "kg",
+    "Balance": 4
+  },
+  {
+    "SKU": "JKP",
+    "Name": "Kepenys",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 5,
+    "Unit": "kg",
+    "Balance": 5
+  },
+  {
+    "SKU": "JSR",
+    "Name": "Širdis",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 5,
+    "Unit": "kg",
+    "Balance": 1
+  },
+  {
+    "SKU": "JLZ",
+    "Name": "Liežuvis",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 16,
+    "Unit": "kg",
+    "Balance": 1
   },
   {
     "SKU": "SNT",
@@ -42,7 +132,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 27
+    "Balance": 47
   },
   {
     "SKU": "SCK",
@@ -51,7 +141,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 16
+    "Balance": 36
   },
   {
     "SKU": "SAR",
@@ -60,7 +150,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 23
+    "Balance": 43
   },
   {
     "SKU": "OV1",
@@ -69,7 +159,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 12
+    "Balance": 32
   },
   {
     "SKU": "OV5",
@@ -78,6 +168,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 24
+    "Balance": 44
   }
 ]
