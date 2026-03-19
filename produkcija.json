@@ -24,7 +24,7 @@
     "Use": "",
     "Price": 13,
     "Unit": "kg",
-    "Balance": 20
+    "Balance": 12
   },
   {
     "SKU": "JSN",
@@ -108,22 +108,13 @@
     "Balance": 1
   },
   {
-    "SKU": "JLZ",
-    "Name": "Liežuvis",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 16,
-    "Unit": "kg",
-    "Balance": 1
-  },
-  {
     "SKU": "SNT",
     "Name": "Natūralus",
     "Description": "320-360 g/vnt",
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 24
+    "Balance": 23
   },
   {
     "SKU": "SKM",
@@ -150,7 +141,7 @@
     "Use": "Desertinis",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 43
+    "Balance": 42
   },
   {
     "SKU": "OV1",
@@ -168,6 +159,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 44
+    "Balance": 42
   }
 ]
