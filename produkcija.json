@@ -6,7 +6,7 @@
     "Use": "",
     "Price": 12,
     "Unit": "kg",
-    "Balance": 14
+    "Balance": 11
   },
   {
     "SKU": "JF1",
@@ -15,7 +15,7 @@
     "Use": "",
     "Price": 12,
     "Unit": "kg",
-    "Balance": 29
+    "Balance": 27
   },
   {
     "SKU": "JF5",
@@ -24,7 +24,7 @@
     "Use": "",
     "Price": 13,
     "Unit": "kg",
-    "Balance": 10
+    "Balance": 7
   },
   {
     "SKU": "JSN",
@@ -51,7 +51,7 @@
     "Use": "Sultiniui",
     "Price": 2,
     "Unit": "kg",
-    "Balance": 22
+    "Balance": 18
   },
   {
     "SKU": "JKC",
@@ -60,7 +60,7 @@
     "Use": "",
     "Price": 6,
     "Unit": "kg",
-    "Balance": 2
+    "Balance": 1
   },
   {
     "SKU": "JPA",
