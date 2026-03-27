@@ -1,14 +1,5 @@
 [
   {
-    "SKU": "JKM",
-    "Name": "Kumpinė",
-    "Description": "Pakuotė apie 0.8 kg",
-    "Use": "",
-    "Price": 12,
-    "Unit": "kg",
-    "Balance": 11
-  },
-  {
     "SKU": "JF1",
     "Name": "Faršas",
     "Description": "Pakuotė apie 1 kg",
@@ -70,15 +61,6 @@
     "Price": 18,
     "Unit": "kg",
     "Balance": 3
-  },
-  {
-    "SKU": "JKP",
-    "Name": "Kepenys",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 5,
-    "Unit": "kg",
-    "Balance": 5
   },
   {
     "SKU": "JSR",
