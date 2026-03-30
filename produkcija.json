@@ -6,7 +6,7 @@
     "Use": "",
     "Price": 12,
     "Unit": "kg",
-    "Balance": 25
+    "Balance": 21
   },
   {
     "SKU": "JF5",
@@ -43,24 +43,6 @@
     "Price": 2,
     "Unit": "kg",
     "Balance": 14
-  },
-  {
-    "SKU": "JPA",
-    "Name": "Flanksteikas",
-    "Description": "Pakuotė apie 0.5 kg",
-    "Use": "",
-    "Price": 16,
-    "Unit": "kg",
-    "Balance": 1
-  },
-  {
-    "SKU": "JRM",
-    "Name": "Rumpsteikas",
-    "Description": "Pakuotė apie 0.5 kg",
-    "Use": "",
-    "Price": 18,
-    "Unit": "kg",
-    "Balance": 3
   },
   {
     "SKU": "JSR",
