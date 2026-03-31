@@ -69,7 +69,7 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 45
+    "Balance": 44
   },
   {
     "SKU": "SCK",
@@ -96,7 +96,7 @@
     "Use": "",
     "Price": 8,
     "Unit": "vnt.",
-    "Balance": 28
+    "Balance": 27
   },
   {
     "SKU": "OV5",
@@ -105,6 +105,6 @@
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 42
+    "Balance": 41
   }
 ]
