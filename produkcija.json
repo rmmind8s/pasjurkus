@@ -1,57 +1,12 @@
 [
   {
-    "SKU": "JF1",
-    "Name": "Faršas",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 12,
-    "Unit": "kg",
-    "Balance": 9
-  },
-  {
-    "SKU": "JF5",
-    "Name": "Faršas 0.5 kg",
-    "Description": "Pakuotė apie 0.5 kg",
-    "Use": "",
-    "Price": 13,
-    "Unit": "kg",
-    "Balance": 7
-  },
-  {
     "SKU": "JSN",
     "Name": "Šonkauliukai",
     "Description": "Pakuotė apie 0.9 kg",
     "Use": "",
     "Price": 8,
     "Unit": "kg",
-    "Balance": 20
-  },
-  {
-    "SKU": "JBR",
-    "Name": "Brisketas",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "Lėtam kepimui",
-    "Price": 13,
-    "Unit": "kg",
-    "Balance": 14
-  },
-  {
-    "SKU": "JKA",
-    "Name": "Kaulai maistiniai",
-    "Description": "Pakuotė apie 2 kg",
-    "Use": "Sultiniui",
-    "Price": 2,
-    "Unit": "kg",
-    "Balance": 13
-  },
-  {
-    "SKU": "JSR",
-    "Name": "Širdis",
-    "Description": "Pakuotė apie 1 kg",
-    "Use": "",
-    "Price": 5,
-    "Unit": "kg",
-    "Balance": 1
+    "Balance": 4
   },
   {
     "SKU": "SNT",
