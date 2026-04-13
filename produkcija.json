@@ -1,14 +1,5 @@
 [
   {
-    "SKU": "JSN",
-    "Name": "Šonkauliukai",
-    "Description": "Pakuotė apie 0.9 kg",
-    "Use": "",
-    "Price": 8,
-    "Unit": "kg",
-    "Balance": 4
-  },
-  {
     "SKU": "SNT",
     "Name": "Natūralus",
     "Description": "320-360 g/vnt",
