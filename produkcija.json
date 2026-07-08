@@ -1,12 +1,21 @@
 [
   {
+    "SKU": "JNG",
+    "Name": "Nugarinė",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "Steikams",
+    "Price": 24,
+    "Unit": "kg",
+    "Balance": 4
+  },
+  {
     "SKU": "SNT",
     "Name": "Natūralus",
     "Description": "320-360 g/vnt",
     "Use": "",
     "Price": 5,
     "Unit": "vnt.",
-    "Balance": 17
+    "Balance": 16
   },
   {
     "SKU": "SKM",
