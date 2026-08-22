@@ -94,7 +94,7 @@
       color: var(--gold-light);
     }
 
-    /* Top Navigation & Hero Header (Lightened & Multi-Layered Glow) */
+    /* Top Navigation & Hero Header */
     header {
       background: 
         radial-gradient(circle at center, rgba(19, 50, 39, 0.35) 0%, rgba(6, 21, 16, 0.82) 100%),
@@ -112,7 +112,7 @@
       padding: 2.5rem 1rem;
     }
 
-    /* Enhanced Logo visibility with filter glow */
+    /* Enhanced Logo visibility */
     .logo {
       width: 100%;
       max-width: 320px;
@@ -153,7 +153,7 @@
       }
     }
 
-    /* Responsive Navigation Styles */
+    /* Original Navigation Bar Layout */
     nav {
       position: relative;
       display: flex;
@@ -162,7 +162,7 @@
       width: 100%;
       max-width: 900px;
       background: var(--glass-bg);
-      padding: 0.75rem 1.25rem;
+      padding: 0.6rem 0.8rem 0.6rem 1.25rem;
       border-radius: 16px;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -178,7 +178,7 @@
     }
 
     .nav-links a {
-      padding: 10px 18px;
+      padding: 8px 14px;
       font-size: 0.95rem;
       font-weight: 500;
       color: var(--text-body);
@@ -204,6 +204,7 @@
       color: var(--emerald-darkest) !important;
       box-shadow: 0 4px 15px var(--gold-glow);
       transition: all 0.3s ease;
+      margin-left: auto;
     }
 
     .orderBtn:hover {
@@ -217,80 +218,28 @@
       fill: currentColor;
     }
 
-    /* Mobile Hamburger Button */
-    .hamburger-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 42px;
-      height: 42px;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 101;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger-toggle span {
-      width: 100%;
-      height: 2px;
-      background-color: var(--gold-primary);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* Hamburger Animation to 'X' */
-    .hamburger-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    .hamburger-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile Layout Adaptations */
     @media (max-width: 767px) {
-      .hamburger-toggle {
-        display: flex;
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 0.8rem;
       }
 
       .nav-links {
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--emerald-darkest);
-        border: 1px solid var(--border-subtle);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: var(--shadow-luxury);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .nav-links.show {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
       }
 
       .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-        font-size: 1.05rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.88rem;
+        padding: 6px 10px;
       }
 
-      .nav-links a:last-child {
-        border-bottom: none;
+      .orderBtn {
+        margin-left: 0;
+        width: 100%;
       }
     }
 
@@ -477,26 +426,19 @@
     <h1>Jurkų Šeimos Ūkis</h1>
     
     <nav>
-      <!-- Visual CTA for Orders -->
-      <a href="./prekyba.html" class="orderBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"/></svg>
-        Užsakymai
-      </a>
-
-      <!-- Hamburger toggle button -->
-      <button class="hamburger-toggle" id="menuToggle" aria-label="Atverti meniu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Navigation links container -->
-      <div class="nav-links" id="navLinks">
+      <!-- Navigation links container (Kairėje / Centre) -->
+      <div class="nav-links">
         <a href="#apie">Apie ūkį</a>
         <a href="#produkcija">Produkcija</a>
         <a href="#laisvalaikis">Laisvalaikis</a>
         <a href="#kontaktai">Kontaktai</a>
       </div>
+
+      <!-- Užsakymų mygtukas (Dešinėje) -->
+      <a href="./prekyba.html" class="orderBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"/></svg>
+        Užsakymai
+      </a>
     </nav>
   </header>
 
@@ -571,23 +513,6 @@
     function topFunction() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    // Mobile Hamburger Toggle Logic
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navLinks.classList.toggle('show');
-    });
-
-    // Close mobile menu when clicking any link inside
-    document.querySelectorAll('#navLinks a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('show');
-      });
-    });
   </script>
 
 </body>
