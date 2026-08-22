@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ūkio produkcija ir pramogos kaime 🏖️ prie Jūros</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ūkio produkcija ir pramogos kaime &#127958; prie Jūros</title>
 
   <meta name="description" content="Jurkų Šeimos ūkis įkurtas 1991 m. Rietavo savivaldybėje, gamina žalią pieną, fermentinius sūrius, šviežią jautieną ir jautienos gaminius. Organizuojamos edukacijos, ekskursijos ir pažintys su ūkio gyvenimu.">
 
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:site_name" content="Pas Jurkus">
-  <meta property="og:locale" content="lt_LT">
+  <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://pasjurkus.lt">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ūkio produkcija ir pramogos kaime 🏖️ prie Jūros">
+  <meta property="og:title" content="Ūkio produkcija ir pramogos kaime &#127958; prie Jūros">
   <meta property="og:description" content="Jurkų Šeimos ūkis įkurtas 1991 m. Rietavo savivaldybėje, gamina žalią pieną, fermentinius sūrius, šviežią jautieną ir jautienos gaminius. Organizuojamos edukacijos, ekskursijos ir pažintys su ūkio gyvenimu.">
   <meta property="og:image" content="./img/og-image.png">
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg">
-  <link rel="shortcut icon" href="./img/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-title" content="Pas Jurkus">
-  <link rel="manifest" href="./img/favicon/site.webmanifest">
+  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Pas Jurkus" />
+  <link rel="manifest" href="./img/favicon/site.webmanifest" />
 
-  <meta name="theme-color" content="#fcb016">
+  <meta name="theme-color" content="#dbc5a3" /> <!-- Nauja šampano aukso spalva -->
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --black: #2b2b2b;
-      --dark: #3f2c07;
-      --deep: #fcb016;
-      --light: #ffe8a6;
-      --lighter: #fffef9;
-      --white: #ffffff;
-    }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
+    :root {
+      --black: rgb(0, 48, 28);      /* Labai tamsus smaragdas (Miško žalumas) - Buvo juoda */
+      --dark: rgb(0, 64, 38);       /* Turtingas smaragdo žalumas - Buvo tamsiai ruda */
+      --deep: rgb(222, 204, 162);   /* Minkštas šampano auksas - Buvo ryški auksinė */
+      --light: rgb(245, 235, 215);  /* Pale kreminis/auksinis akcentas - Buvo gelsva */
+      --lighter: rgb(245, 255, 250);/* Subtilus mėtų atspalvio off-white - Buvo rusva */
+      --white: rgb(255, 255, 255);  /* Švari balta */
     }
 
     html {
@@ -51,59 +44,65 @@
 
     body {
       margin: 0;
-      font-family: "Tagesschrift", system-ui, sans-serif;
       line-height: 1.6;
+      font-family: "Tagesschrift", system-ui;
       background: var(--lighter);
-      color: var(--black);
     }
 
     a, section p {
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui;
     }
 
     a {
       text-decoration: none;
       color: var(--dark);
-      transition: color 0.3s ease, background-color 0.3s ease;
+      transition: color 0.3s;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* Header & Hero */
     header {
-      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./img/hero.jpeg') center/cover no-repeat;
+      background-image: url('./img/hero.jpeg');
+      background-size: cover;
+      background-position: center;
       height: 100vh;
-      height: 100dvh;
+      height: 100dvh; /* Pašalina problemą mobiliosiose naršyklėse */
       color: var(--white);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
       text-align: center;
-      padding: 1rem;
     }
 
-    .logo {
-      width: 100%;
-      max-width: 350px;
-      height: auto;
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 48, 28, 0.75); /* Tamsus smaragdo žalumo užpildas */
+      z-index: 0;
+    }
+
+    header h1, header nav {
+      z-index: 1;
+      position: relative;
     }
 
     header h1 {
-      text-shadow: 0 0 10px var(--white), 0 0 20px var(--deep);
-      color: var(--black);
-      margin: 1rem 0;
+      text-shadow: 0 0 10px var(--white), 0 0 10px var(--white), 0 0 15px var(--deep), 0 0 20px var(--deep), 0 0 25px var(--deep), 0 0 30px var(--deep); /* Šampano aukso šešėlis */
+      color: var(--black); /* Tamsaus smaragdo tekstas */
     }
 
     nav {
-      max-width: 900px;
+      max-width: 77vw;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.3rem;
     }
 
     nav a {
@@ -111,32 +110,24 @@
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      padding: 12px 20px;
+      padding: 14px 25px;
       white-space: nowrap;
-      background-color: rgba(3, 3, 3, 0.45);
-      color: var(--deep);
+      background-color: rgba(0, 48, 28, 0.45); /* Tamsaus smaragdo bazė */
+      color: var(--deep); /* Šampano aukso tekstas */
+      margin: 0.15rem;
+    }
+
+    nav a:link, nav a:visited {
+      color: var(--deep); /* Šampano aukso tekstas */
     }
 
     nav a:hover,
     nav a:active {
-      background-color: var(--deep);
-      color: var(--black);
+      background-color: var(--deep); /* Šampano aukso fonas hover */
+      color: var(--black); /* Tamsaus smaragdo tekstas hover */
       text-decoration: none;
     }
 
-    .orderBtn {
-      color: var(--black)!important;
-      background-color: var(--deep)!important;
-      font-weight: 600;
-    }
-
-    .orderBtn svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      flex-shrink: 0;
-    }
-
-    /* Layout Sections */
     section {
       padding: 3em 2em;
       text-align: center;
@@ -145,12 +136,63 @@
     h2 {
       margin-top: 0;
       font-size: 2em;
-      color: var(--dark);
+      color: var(--dark); /* Turtingas smaragdo žalumas */
       text-transform: uppercase;
     }
 
-    .width-50 {
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 2em;
+    }
+
+    .social-icons svg {
+      width: 1.2em;
+      height: 1.2em;
+    }
+
+    .social-icons a svg rect, .social-icons a svg path {
+      fill: var(--dark); /* Smaragdo žalumo piktogramos */
+    }
+
+    .social-icons a:hover > svg rect, .social-icons a:hover > svg path {
+      fill: var(--black); /* Tamsaus smaragdo piktogramos hover */
+    }
+
+    .social-icons {
+      padding: 0;
+      margin-top: 1.2em;
+      margin-bottom: 0;
+      font-size: 0.75em;
+    }
+
+    .social-icons li {
+      display: inline-block;
+    }
+
+    iframe {
       width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 1em;
+    }
+
+    footer {
+      background-color: var(--dark); /* Smaragdo žalumo footer */
+      text-align: center;
+      padding: 1.5em;
+      font-size: 0.9em;
+      color: var(--light); /* Pale kreminis tekstas */
+    }
+
+    .logo {
+      width: 350px;
+      margin-bottom: 0;
+      z-index: 1;
+      position: relative;
+    }
+
+    #kontaktai {
+      background-color: var(--light); /* Pale kreminis fonas */
     }
 
     .content-sections {
@@ -162,8 +204,9 @@
     .content-sections section {
       flex: 1;
       padding: 1em;
+      box-sizing: border-box;
     }
-
+    
     @media (min-width: 768px) {
       .content-sections {
         flex-direction: row;
@@ -174,59 +217,12 @@
         max-width: 50%;
       }
 
-      .width-50 {
+      .width-50{
         max-width: 50%;
         margin: auto;
       }
     }
 
-    /* Kontaktai ir Footer */
-    #kontaktai {
-      background-color: var(--light);
-    }
-
-    .social-icons {
-      padding: 0;
-      margin: 1.2em 0 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .social-icons a {
-      font-size: 1.5rem;
-      display: inline-block;
-    }
-
-    .social-icons svg {
-      width: 1.5em;
-      height: 1.5em;
-      fill: var(--dark);
-      transition: fill 0.3s ease;
-    }
-
-    .social-icons a:hover svg {
-      fill: var(--black);
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 1em;
-      border-radius: 8px;
-    }
-
-    footer {
-      background-color: var(--dark);
-      text-align: center;
-      padding: 1.5em;
-      font-size: 0.9em;
-      color: var(--light);
-    }
-
-    /* Grįžimo į viršų mygtukas */
     #toTopBtn {
       display: none;
       position: fixed;
@@ -235,34 +231,43 @@
       z-index: 99;
       border: none;
       outline: none;
-      background-color: rgba(252, 176, 22, 0.85);
-      color: var(--dark);
+      background-color: rgba(0, 48, 28, 0.85); /* Tamsaus smaragdo fonas */
+      color: var(--white); /* Balta piktograma */
       cursor: pointer;
-      padding: 12px;
-      border-radius: 50%;
-      transition: opacity 0.3s, background-color 0.3s;
+      padding: 15px;
+      border-radius: 12px; /* Kvadratinis su apvalintais kampais */
+      transition: background-color 0.3s;
     }
 
     #toTopBtn:hover {
-      background-color: var(--deep);
+      background-color: var(--dark); /* Smaragdo hover fonas */
     }
 
-    #toTopBtn svg {
-      width: 20px;
-      height: 20px;
-      display: block;
-      fill: var(--dark);
+    #toTopBtn svg{
+      width: 22px;
+      opacity: 0.8;
+      fill: var(--light); /* Pale kreminis piktogramos užpildas */
     }
+    
+    .orderBtn svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .orderBtn {
+      color: var(--black)!important; /* Tamsaus smaragdo tekstas */
+      background-color: var(--deep)!important; /* Šampano aukso fonas */
+    }
+
   </style>
 </head>
 <body>
 
-  <button onclick="topFunction()" id="toTopBtn" title="Grįžti į viršų" aria-label="Grįžti į viršų">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 201.4C309.9 188.9 330.2 188.9 342.7 201.4L502.7 361.4C515.2 373.9 515.2 394.2 502.7 406.7C490.2 419.2 469.9 419.2 457.4 406.7L320 269.3L182.6 406.6C170.1 419.1 149.8 419.1 137.3 406.6C124.8 394.1 124.8 373.8 137.3 361.3L297.3 201.3z"/></svg>
-  </button>
+  <button onclick="topFunction()" id="toTopBtn" title="Grįžti į viršų" aria-label="Grįžti į viršų">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 201.4C309.9 188.9 330.2 188.9 342.7 201.4L502.7 361.4C515.2 373.9 515.2 394.2 502.7 406.7C490.2 419.2 469.9 419.2 457.4 406.7L320 269.3L182.6 406.6C170.1 419.1 149.8 419.1 137.3 406.6C124.8 394.1 124.8 373.8 137.3 361.3L297.3 201.3z"/></svg>&nbsp;</button>
 
   <header id="hero">
-    <a href="./"><img src="./img/logo.png" alt="Jurkų šeimos pienininkystės ūkis - veikia nuo 1991 m." class="logo" width="350" height="100"></a>
+    <a href="./"><img src="./img/logo.png" alt="Jurkų šeimos pienininkystės ūkis - veikia nuo 1991 m." class="logo"></a>
     <h1>Jurkų Šeimos Ūkis</h1>
     <nav>
       <a href="#apie">Apie ūkį</a>
@@ -287,7 +292,7 @@
 
       <section id="laisvalaikis" class="width-50">
         <h2>Laisvalaikis</h2>
-        <p>Siekiant stiprinti ryšį tarp produkcijos gamintojo ir vartotojo ūkyje organizuojamos edukacijos. Besidomintiems sudaroma galimybė apžiūrėti ūkį, susipažinti su komanda ir netgi išbandyti save atliekant tikrus ūkio darbus.</p>
+        <p>Siekiant stiprinti ryšį tarp produkcijos gamintojo ir vartotojo ūkyje organizuodadas edukacijos. Besidomintiems sudaroma galimybė apžiūrėti ūkį, susipažinti su komanda ir netgi išbandyti save atliekant tikrus ūkio darbus.</p>
       </section>
     </div>
 
@@ -296,7 +301,7 @@
       <h3>Jurkų Šeimos Ūkis</h3>
       <p>
         <a href="https://maps.app.goo.gl/3R5qzPEYc7or3rch9" target="_blank" rel="noopener">Jankaičių k., Rietavo sav.</a><br>
-        <a href="tel:+37062804118">+370 628 04118</a>
+        <a href="tel:+37062804118">+370 628 04118</a><br>
       </p>
 
       <ul class="social-icons">
@@ -318,8 +323,9 @@
       </ul>
 
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2081.735530449166!2d21.810441!3d55.75038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f16.1!3m2!1m1!2zNTXCsDQ1JzAxLjQiTiAyMcKwNDgnMzcuNeJF!5e1!3m2!1sen!2slt!4v1746806071635!5m2!1sen!2slt"
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2081.735530449166!2d21.810441!3d55.75038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f16.1!3m2!1m1!2zNTXCsDQ1JzAxLjQiTiAyMcKwNDgnMzcuNiJF!5e1!3m2!1sen!2slt!4v1746806071635!5m2!1sen!2slt"
         title="Jurkų šeimos ūkio vieta žemėlapyje"
+        allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
@@ -331,19 +337,21 @@
   </footer>
 
   <script>
-    const mybutton = document.getElementById("toTopBtn");
+  let mybutton = document.getElementById("toTopBtn");
 
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    };
+  window.onscroll = function() {scrollFunction()};
 
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
     }
+  }
+
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   </script>
 
 </body>
