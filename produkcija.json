@@ -1,5 +1,176 @@
 [
   {
+    "SKU": "JNG",
+    "Name": "Nugarinė",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "Steikams",
+    "Price": 25,
+    "Unit": "kg",
+    "Balance": 9
+  },
+  {
+    "SKU": "JSP",
+    "Name": "Sprandinė",
+    "Description": "Pakuotė apie 0.8 kg",
+    "Use": "Kepsniams arba malti",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 12
+  },
+  {
+    "SKU": "JPJ",
+    "Name": "Išpjova",
+    "Description": "Pakuotė apie 0.8 kg",
+    "Use": "",
+    "Price": 30,
+    "Unit": "kg",
+    "Balance": 4
+  },
+  {
+    "SKU": "JKM",
+    "Name": "Kumpinė",
+    "Description": "Pakuotė apie 0.8 kg",
+    "Use": "",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 17
+  },
+  {
+    "SKU": "JMN",
+    "Name": "Mentė",
+    "Description": "Pakuotė apie 0.7 kg",
+    "Use": "Troškinimui",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 11
+  },
+  {
+    "SKU": "JF1",
+    "Name": "Faršas",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 12,
+    "Unit": "kg",
+    "Balance": 68
+  },
+  {
+    "SKU": "JSN",
+    "Name": "Šonkauliukai",
+    "Description": "Pakuotė apie 0.9 kg",
+    "Use": "",
+    "Price": 8,
+    "Unit": "kg",
+    "Balance": 21
+  },
+  {
+    "SKU": "JBR",
+    "Name": "Brisketas",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "Lėtam kepimui",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 4
+  },
+  {
+    "SKU": "JKA",
+    "Name": "Kaulai maistiniai",
+    "Description": "Pakuotė apie 2 kg",
+    "Use": "Sultiniui",
+    "Price": 2,
+    "Unit": "kg",
+    "Balance": 16
+  },
+  {
+    "SKU": "JKC",
+    "Name": "Kaulų čiulpai",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 8,
+    "Unit": "kg",
+    "Balance": 2
+  },
+  {
+    "SKU": "JPA",
+    "Name": "Flanksteikas",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 15,
+    "Unit": "kg",
+    "Balance": 3
+  },
+  {
+    "SKU": "JAN",
+    "Name": "Antrekotas",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 28,
+    "Unit": "kg",
+    "Balance": 15
+  },
+  {
+    "SKU": "JRM",
+    "Name": "Rumpsteikas",
+    "Description": "Pakuotė apie 0.5 kg",
+    "Use": "",
+    "Price": 19,
+    "Unit": "kg",
+    "Balance": 5
+  },
+  {
+    "SKU": "JGL",
+    "Name": "Guliašinė",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 13,
+    "Unit": "kg",
+    "Balance": 8
+  },
+  {
+    "SKU": "JZN",
+    "Name": "Pažandės",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 18,
+    "Unit": "kg",
+    "Balance": 1
+  },
+  {
+    "SKU": "JKP",
+    "Name": "Kepenys",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 6,
+    "Unit": "kg",
+    "Balance": 6
+  },
+  {
+    "SKU": "JSR",
+    "Name": "Širdis",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 6,
+    "Unit": "kg",
+    "Balance": 1
+  },
+  {
+    "SKU": "JLZ",
+    "Name": "Liežuvis",
+    "Description": "Pakuotė apie 1 kg",
+    "Use": "",
+    "Price": 15,
+    "Unit": "kg",
+    "Balance": 1
+  },
+  {
+    "SKU": "JUD",
+    "Name": "Uodega",
+    "Description": "1 vnt., apie 2 kg",
+    "Use": "",
+    "Price": 17,
+    "Unit": "kg",
+    "Balance": 1
+  },
+  {
     "SKU": "SNT",
     "Name": "Natūralus",
     "Description": "320-360 g/vnt",
